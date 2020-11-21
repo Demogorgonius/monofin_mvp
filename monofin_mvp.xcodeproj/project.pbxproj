@@ -15,9 +15,11 @@
 		A5B25E6D256841B50006BD67 /* CalendarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E6A256841B50006BD67 /* CalendarMainViewController.swift */; };
 		A5B25E6E256841B50006BD67 /* CalendarMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B25E6B256841B50006BD67 /* CalendarMainViewController.xib */; };
 		A5B25E6F256841B50006BD67 /* CalendarMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B25E6B256841B50006BD67 /* CalendarMainViewController.xib */; };
+		A5B25E8125695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E8025695CFF0006BD67 /* CalendarMainPresenter.swift */; };
+		A5B25E8225695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E8025695CFF0006BD67 /* CalendarMainPresenter.swift */; };
+		A5B25E88256960520006BD67 /* Monofin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E86256960520006BD67 /* Monofin.xcdatamodeld */; };
 		A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */; };
 		A5CE3F792567EBB100C44CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */; };
-		A5CE3F7B2567EBB100C44CE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F7A2567EBB100C44CE9 /* ViewController.swift */; };
 		A5CE3F7E2567EBB100C44CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE3F7C2567EBB100C44CE9 /* Main.storyboard */; };
 		A5CE3F802567EBB300C44CE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CE3F7F2567EBB300C44CE9 /* Assets.xcassets */; };
 		A5CE3F832567EBB300C44CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE3F812567EBB300C44CE9 /* LaunchScreen.storyboard */; };
@@ -55,10 +57,11 @@
 		A5B25E60256840C50006BD67 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A5B25E6A256841B50006BD67 /* CalendarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainViewController.swift; sourceTree = "<group>"; };
 		A5B25E6B256841B50006BD67 /* CalendarMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarMainViewController.xib; sourceTree = "<group>"; };
+		A5B25E8025695CFF0006BD67 /* CalendarMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainPresenter.swift; sourceTree = "<group>"; };
+		A5B25E87256960520006BD67 /* Monofin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Monofin.xcdatamodel; sourceTree = "<group>"; };
 		A5CE3F732567EBB100C44CE9 /* monofin_mvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monofin_mvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A5CE3F7A2567EBB100C44CE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A5CE3F7D2567EBB100C44CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5CE3F7F2567EBB300C44CE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5CE3F822567EBB300C44CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		A5B25E69256841770006BD67 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				A5B25E8025695CFF0006BD67 /* CalendarMainPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -201,7 +205,7 @@
 				A5B25E66256841380006BD67 /* CalendarMainModule */,
 				A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */,
 				A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */,
-				A5CE3F7A2567EBB100C44CE9 /* ViewController.swift */,
+				A5B25E86256960520006BD67 /* Monofin.xcdatamodeld */,
 				A5CE3F7C2567EBB100C44CE9 /* Main.storyboard */,
 				A5CE3F7F2567EBB300C44CE9 /* Assets.xcassets */,
 				A5CE3F812567EBB300C44CE9 /* LaunchScreen.storyboard */,
@@ -499,9 +503,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B25E8125695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */,
+				A5B25E88256960520006BD67 /* Monofin.xcdatamodeld in Sources */,
 				A5B25E542568404A0006BD67 /* Router.swift in Sources */,
-				A5CE3F7B2567EBB100C44CE9 /* ViewController.swift in Sources */,
 				A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */,
 				A5B25E6C256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
 				A5B25E5B256840950006BD67 /* ModuleBuilder.swift in Sources */,
@@ -513,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B25E8225695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5B25E6D256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
 				A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */,
 			);
@@ -845,6 +851,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A5B25E86256960520006BD67 /* Monofin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A5B25E87256960520006BD67 /* Monofin.xcdatamodel */,
+			);
+			currentVersion = A5B25E87256960520006BD67 /* Monofin.xcdatamodel */;
+			path = Monofin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A5CE3F6B2567EBB100C44CE9 /* Project object */;
 }
