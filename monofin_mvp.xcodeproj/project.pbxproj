@@ -17,7 +17,7 @@
 		A5B25E6F256841B50006BD67 /* CalendarMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B25E6B256841B50006BD67 /* CalendarMainViewController.xib */; };
 		A5B25E8125695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E8025695CFF0006BD67 /* CalendarMainPresenter.swift */; };
 		A5B25E8225695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E8025695CFF0006BD67 /* CalendarMainPresenter.swift */; };
-		A5B25E88256960520006BD67 /* Monofin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E86256960520006BD67 /* Monofin.xcdatamodeld */; };
+		A5B25E88256960520006BD67 /* MonofinModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E86256960520006BD67 /* MonofinModel.xcdatamodeld */; };
 		A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */; };
 		A5CE3F792567EBB100C44CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */; };
 		A5CE3F7E2567EBB100C44CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE3F7C2567EBB100C44CE9 /* Main.storyboard */; };
@@ -205,7 +205,7 @@
 				A5B25E66256841380006BD67 /* CalendarMainModule */,
 				A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */,
 				A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */,
-				A5B25E86256960520006BD67 /* Monofin.xcdatamodeld */,
+				A5B25E86256960520006BD67 /* MonofinModel.xcdatamodeld */,
 				A5CE3F7C2567EBB100C44CE9 /* Main.storyboard */,
 				A5CE3F7F2567EBB300C44CE9 /* Assets.xcassets */,
 				A5CE3F812567EBB300C44CE9 /* LaunchScreen.storyboard */,
@@ -505,7 +505,7 @@
 			files = (
 				A5B25E8125695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */,
-				A5B25E88256960520006BD67 /* Monofin.xcdatamodeld in Sources */,
+				A5B25E88256960520006BD67 /* MonofinModel.xcdatamodeld in Sources */,
 				A5B25E542568404A0006BD67 /* Router.swift in Sources */,
 				A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */,
 				A5B25E6C256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
@@ -853,13 +853,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A5B25E86256960520006BD67 /* Monofin.xcdatamodeld */ = {
+		A5B25E86256960520006BD67 /* MonofinModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				A5B25E87256960520006BD67 /* Monofin.xcdatamodel */,
 			);
 			currentVersion = A5B25E87256960520006BD67 /* Monofin.xcdatamodel */;
-			path = Monofin.xcdatamodeld;
+			path = MonofinModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
