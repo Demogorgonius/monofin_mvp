@@ -43,7 +43,7 @@ class CalendarMainViewController: UIViewController {
         if cellState.dateBelongsTo == .thisMonth {
             cell.dateLabel.textColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
         } else {
-            cell.dateLabel.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            cell.dateLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         }
     }
     
