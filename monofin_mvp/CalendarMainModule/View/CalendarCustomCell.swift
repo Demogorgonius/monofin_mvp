@@ -16,5 +16,6 @@ class CalendarCustomCell: JTACDayCell {
     @IBOutlet weak var newsIcon: UIView!
     @IBOutlet weak var traningIcon: UIView!
     @IBOutlet weak var otherIcon: UIView!
+    @IBOutlet weak var selectedView: UIView!
     
 }

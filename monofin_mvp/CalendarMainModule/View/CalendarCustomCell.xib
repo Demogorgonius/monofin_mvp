@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HN-0x-oKS">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwK-YN-LA5">
                         <rect key="frame" x="15" y="15" width="21" height="21"/>
                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -26,13 +31,23 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="5HN-0x-oKS" secondAttribute="trailing" id="G35-qt-7D5"/>
+                <constraint firstItem="5HN-0x-oKS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PMS-4N-4Vz"/>
                 <constraint firstItem="ZwK-YN-LA5" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="bDb-9r-1ii"/>
                 <constraint firstItem="ZwK-YN-LA5" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="gkJ-km-YVt"/>
+                <constraint firstItem="5HN-0x-oKS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pQB-uw-cSi"/>
+                <constraint firstAttribute="bottom" secondItem="5HN-0x-oKS" secondAttribute="bottom" id="zEd-1D-Dt9"/>
             </constraints>
             <connections>
                 <outlet property="dateLabel" destination="ZwK-YN-LA5" id="NvM-zJ-p0w"/>
+                <outlet property="selectedView" destination="5HN-0x-oKS" id="bLJ-jS-f3R"/>
             </connections>
-            <point key="canvasLocation" x="135" y="0.0"/>
+            <point key="canvasLocation" x="134.78260869565219" y="0.0"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
