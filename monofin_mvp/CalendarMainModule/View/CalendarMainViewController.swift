@@ -42,7 +42,7 @@ class CalendarMainViewController: UIViewController {
     func handleCellTextColor(veiw: JTACDayCell?, cellState: CellState) {
         guard let myCustomCell = view as? CalendarCustomCell else { return }
         if cellState.isSelected {
-            myCustomCell.dateLabel.textColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+            myCustomCell.dateLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         } else {
             myCustomCell.dateLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         }
@@ -50,47 +50,25 @@ class CalendarMainViewController: UIViewController {
     
     func handleCellSelection(view: JTACDayCell?, cellState: CellState) {
         guard let myCustomCell = view as? CalendarCustomCell else {return }
-//        switch cellState.selectedPosition() {
-//        case .full:
-//            myCustomCell.backgroundColor = .green
-//        case .left:
-//            myCustomCell.backgroundColor = .yellow
-//        case .right:
-//            myCustomCell.backgroundColor = .red
-//        case .middle:
-//            myCustomCell.backgroundColor = .blue
-//        case .none:
-//            myCustomCell.backgroundColor = nil
-//        }
-        
         if cellState.isSelected {
             myCustomCell.selectedView.layer.cornerRadius =  13
+            myCustomCell.selectedView.frame.size = myCustomCell.frame.size
             myCustomCell.selectedView.isHidden = false
         } else {
             myCustomCell.selectedView.isHidden = true
         }
     }
-    
-    
-}
-
-//MARK: - Extension JTAppleCalendar
-
-extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDelegate {
-    
-    
     func configureCell(view: JTACDayCell?, cellState: CellState, date: Date, indexPath: IndexPath) {
         guard let cell = view as? CalendarCustomCell else { return }
         cell.dateLabel.text = cellState.text
         if calendar.isDateInToday(date) {
             cell.dateLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         } else {
-            cell.dateLabel.textColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
+            cell.dateLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
         handleCellConfiguration(cell: cell, cellState: cellState)
         
     }
-    
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         //        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
@@ -102,25 +80,39 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
             numberOfRows: numberOfRows,
             calendar: .current,
             generateInDates: .forAllMonths,
-            generateOutDates: .off,
+            generateOutDates: .tillEndOfGrid,
             firstDayOfWeek: .monday,
             hasStrictBoundaries: true)
         
         return parameters
     }
+    
+}
 
+//MARK: - Extension JTAppleCalendar
+
+extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDelegate {
+    
+    
+    
+    
+    
+    
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCustomCell
-        cell.dateLabel.text = cellState.text
-        return cell
+        let customCell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCustomCell
+        configureCell(view: customCell, cellState: cellState, date: date, indexPath: indexPath)
+        return customCell
     }
     
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-         let customCell = cell as! CalendarCustomCell
+        let customCell = cell as! CalendarCustomCell
         configureCell(view: customCell, cellState: cellState, date: date, indexPath: indexPath)
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        handleCellConfiguration(cell: cell, cellState: cellState)
+    }
+    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         handleCellConfiguration(cell: cell, cellState: cellState)
     }
     

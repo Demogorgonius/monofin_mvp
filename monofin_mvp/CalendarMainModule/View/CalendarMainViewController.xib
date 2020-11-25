@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarMainViewController" customModule="monofin_mvp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarMainViewController" customModule="monofin_mvp">
             <connections>
-                <outlet property="calendarView" destination="rVh-bX-980" id="d9l-FI-6wc"/>
+                <outlet property="calendarView" destination="rVh-bX-980" id="dgn-DM-2B1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,8 +22,8 @@
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reG-Gf-vHd">
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                 </navigationBar>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-bX-980" customClass="JTACMonthView" customModule="monofin_mvp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="88" width="414" height="350"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-bX-980" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                    <rect key="frame" x="0.0" y="88" width="414" height="399"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gby-Xw-0zP">
                         <size key="itemSize" width="128" height="128"/>
@@ -31,16 +31,12 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="ibCalendarDataSource" destination="gby-Xw-0zP" id="CHK-ZW-6X2"/>
-                        <outlet property="ibCalendarDelegate" destination="gby-Xw-0zP" id="h7A-fT-vUq"/>
-                    </connections>
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rVh-bX-980" secondAttribute="bottom" constant="424" id="59X-rD-i3J"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rVh-bX-980" secondAttribute="bottom" constant="375" id="59X-rD-i3J"/>
                 <constraint firstItem="reG-Gf-vHd" firstAttribute="leading" secondItem="rVh-bX-980" secondAttribute="leading" id="9Rd-Bl-hur"/>
                 <constraint firstItem="reG-Gf-vHd" firstAttribute="trailing" secondItem="rVh-bX-980" secondAttribute="trailing" id="Ig3-Q8-QdT"/>
                 <constraint firstItem="rVh-bX-980" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="N65-eW-GaV"/>
