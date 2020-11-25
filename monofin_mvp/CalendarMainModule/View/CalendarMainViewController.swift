@@ -120,4 +120,8 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
         configureCell(view: customCell, cellState: cellState, date: date, indexPath: indexPath)
     }
     
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        handleCellConfiguration(cell: cell, cellState: cellState)
+    }
+    
 }
