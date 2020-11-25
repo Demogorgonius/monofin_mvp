@@ -27,8 +27,12 @@ class CalendarMainViewController: UIViewController {
         calendarView.scrollToDate(Date(), animateScroll: false)
         calendarView.scrollDirection = .horizontal
         calendarView.scrollingMode = .stopAtEachCalendarFrame
+        calendarView.minimumInteritemSpacing = 0
+        calendarView.minimumLineSpacing = 0
+//        calendarView.alpha = 0.75
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SplashScreenX")!)
+        self.view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         super.viewDidLoad()
-        
         
     }
     
