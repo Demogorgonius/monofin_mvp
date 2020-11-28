@@ -25,6 +25,7 @@
                     <rect key="frame" x="0.0" y="144" width="414" height="361"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="width" secondItem="rVh-bX-980" secondAttribute="height" multiplier="414:361" id="gNk-P1-e3k"/>
                         <constraint firstAttribute="height" constant="361" id="o7E-jv-hyk"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gby-Xw-0zP">
@@ -43,54 +44,57 @@
                     <items/>
                 </tabBar>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="fCh-XL-3bL" userLabel="DayOfWeek">
-                    <rect key="frame" x="16" y="115" width="382" height="20.5"/>
+                    <rect key="frame" x="16" y="115.5" width="382" height="20"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пн" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo1-zL-Vg1">
-                            <rect key="frame" x="0.0" y="0.0" width="30.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="30.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вт" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2at-C3-UcG">
-                            <rect key="frame" x="58.5" y="0.0" width="30.5" height="20.5"/>
+                            <rect key="frame" x="58.5" y="0.0" width="30.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ср" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vY9-P4-1tk">
-                            <rect key="frame" x="117" y="0.0" width="30.5" height="20.5"/>
+                            <rect key="frame" x="117" y="0.0" width="30.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чт" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGE-kD-qHD">
-                            <rect key="frame" x="175.5" y="0.0" width="31" height="20.5"/>
+                            <rect key="frame" x="175.5" y="0.0" width="31" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пт" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP9-Ra-3s2">
-                            <rect key="frame" x="234.5" y="0.0" width="30.5" height="20.5"/>
+                            <rect key="frame" x="234.5" y="0.0" width="30.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сб" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlq-Ri-Wcj">
-                            <rect key="frame" x="293" y="0.0" width="30.5" height="20.5"/>
+                            <rect key="frame" x="293" y="0.0" width="30.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вс" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2A-nG-jaf">
-                            <rect key="frame" x="351.5" y="0.0" width="30.5" height="20.5"/>
+                            <rect key="frame" x="351.5" y="0.0" width="30.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="fCh-XL-3bL" secondAttribute="height" multiplier="191:10" id="0bS-eP-lUn"/>
+                    </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7BK-C1-nP0" userLabel="YearAndMonth">
-                    <rect key="frame" x="16" y="74" width="382" height="41"/>
+                    <rect key="frame" x="16" y="74.5" width="382" height="41"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAe-W9-wRO">
                             <rect key="frame" x="0.0" y="0.0" width="145" height="41"/>
@@ -105,6 +109,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="7BK-C1-nP0" secondAttribute="height" multiplier="382:41" id="l9l-sh-pUy"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

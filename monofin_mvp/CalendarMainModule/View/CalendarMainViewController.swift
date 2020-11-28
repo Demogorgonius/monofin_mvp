@@ -53,7 +53,7 @@ class CalendarMainViewController: UIViewController {
 
 extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDelegate {
     
-    //MARK: - Configure calendar cell
+    //MARK: - Configure calendar year and month label
     
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
@@ -63,6 +63,7 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
         self.formatter.dateFormat = "LLLL"
         self.monthLabel.text = self.formatter.string(from: date)
     }
+    //MARK: - Configure calendar cell
     
     func handleCellConfiguration(cell: JTACDayCell?, cellState: CellState) {
         handleCellTextColor(veiw: cell, cellState: cellState)
