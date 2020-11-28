@@ -13,6 +13,8 @@ class CalendarMainViewController: UIViewController {
     //MARK: - @IBOutlet
     
     @IBOutlet weak var calendarView: JTACMonthView!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
     
     //MARK: - Variables
     var calendar = Calendar.current
@@ -21,6 +23,16 @@ class CalendarMainViewController: UIViewController {
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
+
+        setupCalendarView()
+    //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SplashScreenX")!)
+        
+        self.view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        super.viewDidLoad()
+        
+    }
+    
+    func setupCalendarView() {
         calendarView.calendarDataSource = self
         calendarView.calendarDelegate = self
         calendarView.register(UINib.init(nibName: "CalendarCustomCell", bundle: Bundle.main), forCellWithReuseIdentifier: "CalendarCell")
@@ -29,10 +41,9 @@ class CalendarMainViewController: UIViewController {
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.minimumInteritemSpacing = 0
         calendarView.minimumLineSpacing = 0
-//        calendarView.alpha = 0.75
-//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SplashScreenX")!)
-        self.view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        super.viewDidLoad()
+        calendarView.visibleDates{ (visibleDates) in
+            self.setupViewsOfCalendar(from: visibleDates)
+        }
         
     }
     
@@ -43,6 +54,15 @@ class CalendarMainViewController: UIViewController {
 extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDelegate {
     
     //MARK: - Configure calendar cell
+    
+    func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
+        let date = visibleDates.monthDates.first!.date
+        self.formatter.dateFormat = "yyyy"
+        self.yearLabel.text = self.formatter.string(from: date)
+        self.formatter.locale = Locale(identifier: "ru_RU")
+        self.formatter.dateFormat = "LLLL"
+        self.monthLabel.text = self.formatter.string(from: date)
+    }
     
     func handleCellConfiguration(cell: JTACDayCell?, cellState: CellState) {
         handleCellTextColor(veiw: cell, cellState: cellState)
@@ -62,7 +82,7 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
     func handleCellSelection(view: JTACDayCell?, cellState: CellState) {
         guard let myCustomCell = view as? CalendarCustomCell else {return }
         if cellState.isSelected {
-            myCustomCell.selectedView.layer.cornerRadius =  13
+            myCustomCell.selectedView.layer.cornerRadius =  30
             myCustomCell.selectedView.frame.size = myCustomCell.frame.size
             myCustomCell.selectedView.isHidden = false
         } else {
@@ -125,6 +145,9 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
     }
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         handleCellConfiguration(cell: cell, cellState: cellState)
+    }
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        setupViewsOfCalendar(from: visibleDates)
     }
     
 }
