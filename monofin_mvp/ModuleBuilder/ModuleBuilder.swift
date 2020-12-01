@@ -9,11 +9,16 @@ import Foundation
 
 protocol AssemblyBuilderProtocol: class {
     func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController
+    func createAuthSelectModule(router: RouterInputProtocol) -> UIViewController
 }
 
 class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController {
         let view = CalendarMainViewController()
+        return view
+    }
+    func createAuthSelectModule(router: RouterInputProtocol) -> UIViewController {
+        let view = AuthSelectViewController()
         return view
     }
 }

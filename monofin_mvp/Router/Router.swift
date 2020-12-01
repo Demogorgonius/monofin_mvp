@@ -15,6 +15,7 @@ protocol RouterInputProtocol: class {
 
 protocol RouterOutputProtocol: RouterInputProtocol {
     func initialViewController()
+    func authSelectViewController()
 }
 
 class Router: RouterOutputProtocol {
@@ -34,5 +35,11 @@ class Router: RouterOutputProtocol {
         }
     }
     
+    func authSelectViewController() {
+        if let navigationVC = navigationVC {
+            guard let authSelectVC = assemblyBuilder?.createAuthSelectModule(router: self) else { return }
+            navigationVC.viewControllers = [authSelectVC]
+        }
+    }
     
 }

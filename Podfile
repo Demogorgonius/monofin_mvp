@@ -7,10 +7,18 @@ target 'monofin_mvp' do
 
   # Pods for monofin_mvp
 	pod 'JTAppleCalendar'
+	pod 'Firebase/Analytics'
+	pod 'FlagPhoneNumber'
+	pod 'Firebase'
+	pod 'Firebase\Auth'
   target 'monofin_mvpTests' do
     inherit! :search_paths
     # Pods for testing
 	pod 'JTAppleCalendar'
+	pod 'Firebase/Analytics'
+        pod 'FlagPhoneNumber'
+        pod 'Firebase'
+        pod 'Firebase\Auth'
   end
 
   target 'monofin_mvpUITests' do
