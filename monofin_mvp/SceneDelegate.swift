@@ -23,13 +23,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
-        let navigationVC = UINavigationController()
-        let assemblyBuilder = AssemblyModuleBuilder()
-        let router = Router(navigationVC: navigationVC, assemblyBuilder: assemblyBuilder)
-        router.initialViewController()
-        window?.rootViewController = navigationVC
-        window?.makeKeyAndVisible()
+//        if UserDefaults.value(forKey: "uid") != nil {
+//
+//            let navigationVC = UINavigationController()
+//            let assemblyBuilder = AssemblyModuleBuilder()
+//            let router = Router(navigationVC: navigationVC, assemblyBuilder: assemblyBuilder)
+//            router.initialViewController()
+//            window?.rootViewController = navigationVC
+//            window?.makeKeyAndVisible()
+//
+//        } else {
+            let navigationVC = UINavigationController()
+            let assemblyBuilder = AssemblyModuleBuilder()
+            let router = Router(navigationVC: navigationVC, assemblyBuilder: assemblyBuilder)
+            router.loginViewController()
+            window?.rootViewController = navigationVC
+            window?.makeKeyAndVisible()
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

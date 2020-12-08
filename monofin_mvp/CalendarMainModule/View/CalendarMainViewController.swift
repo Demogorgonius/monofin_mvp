@@ -20,6 +20,7 @@ class CalendarMainViewController: UIViewController {
     var calendar = Calendar.current
     var numberOfRows = 6
     let formatter = DateFormatter()
+    var presenter: CalendarInProtocol!
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -27,9 +28,14 @@ class CalendarMainViewController: UIViewController {
         setupCalendarView()
     //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SplashScreenX")!)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(addTapped))
         self.view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         super.viewDidLoad()
         
+    }
+    
+    @objc func addTapped() {
+        presenter.addTapped()
     }
     
     func setupCalendarView() {
@@ -150,5 +156,16 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewsOfCalendar(from: visibleDates)
     }
+    
+}
+extension CalendarMainViewController: CalendarOutProtocol {
+    func success() {
+        
+    }
+    
+    func failure(error: Error) {
+        
+    }
+    
     
 }

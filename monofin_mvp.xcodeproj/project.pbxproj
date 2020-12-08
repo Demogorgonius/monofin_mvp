@@ -34,6 +34,18 @@
 		A5CE3F832567EBB300C44CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE3F812567EBB300C44CE9 /* LaunchScreen.storyboard */; };
 		A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F8D2567EBB300C44CE9 /* monofin_mvpTests.swift */; };
 		A5CE3F992567EBB400C44CE9 /* monofin_mvpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F982567EBB400C44CE9 /* monofin_mvpUITests.swift */; };
+		A5E42AD1257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */; };
+		A5E42AD2257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */; };
+		A5E42ADD257F6FC90010782B /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */; };
+		A5E42ADE257F6FC90010782B /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */; };
+		A5E42ADF257F6FC90010782B /* RegisterEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E42ADC257F6FC90010782B /* RegisterEmailViewController.xib */; };
+		A5E42AE0257F6FC90010782B /* RegisterEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E42ADC257F6FC90010782B /* RegisterEmailViewController.xib */; };
+		A5E42AF8257F7BEE0010782B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42AF6257F7BEE0010782B /* LoginViewController.swift */; };
+		A5E42AF9257F7BEE0010782B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42AF6257F7BEE0010782B /* LoginViewController.swift */; };
+		A5E42AFA257F7BEE0010782B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E42AF7257F7BEE0010782B /* LoginViewController.xib */; };
+		A5E42AFB257F7BEE0010782B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E42AF7257F7BEE0010782B /* LoginViewController.xib */; };
+		A5E42B03257F8B070010782B /* LoginModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42B02257F8B070010782B /* LoginModulePresenter.swift */; };
+		A5E42B04257F8B070010782B /* LoginModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42B02257F8B070010782B /* LoginModulePresenter.swift */; };
 		A6463C8EE200811B22C301CE /* Pods_monofin_mvp_monofin_mvpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD413122F585519C9F87868 /* Pods_monofin_mvp_monofin_mvpUITests.framework */; };
 		FF06164C3079A877D5749432 /* Pods_monofin_mvp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D59C3F4973EFFDB3683D51AE /* Pods_monofin_mvp.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +98,12 @@
 		A5CE3F942567EBB400C44CE9 /* monofin_mvpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = monofin_mvpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CE3F982567EBB400C44CE9 /* monofin_mvpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monofin_mvpUITests.swift; sourceTree = "<group>"; };
 		A5CE3F9A2567EBB400C44CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthManager.swift; sourceTree = "<group>"; };
+		A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
+		A5E42ADC257F6FC90010782B /* RegisterEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterEmailViewController.xib; sourceTree = "<group>"; };
+		A5E42AF6257F7BEE0010782B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A5E42AF7257F7BEE0010782B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A5E42B02257F8B070010782B /* LoginModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModulePresenter.swift; sourceTree = "<group>"; };
 		B5ECEC727EF9BE9A70282902 /* Pods-monofin_mvp-monofin_mvpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp-monofin_mvpUITests.debug.xcconfig"; path = "Target Support Files/Pods-monofin_mvp-monofin_mvpUITests/Pods-monofin_mvp-monofin_mvpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B95508D25BDA496742982A6B /* Pods-monofin_mvp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp.debug.xcconfig"; path = "Target Support Files/Pods-monofin_mvp/Pods-monofin_mvp.debug.xcconfig"; sourceTree = "<group>"; };
 		D59C3F4973EFFDB3683D51AE /* Pods_monofin_mvp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monofin_mvp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				A5B25E60256840C50006BD67 /* CoreDataManager.swift */,
+				A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -200,11 +219,14 @@
 			path = AuthSelectModule;
 			sourceTree = "<group>";
 		};
-		A5BCD8782576A7C000758EC0 /* AuthModule */ = {
+		A5BCD8782576A7C000758EC0 /* RegisterEmailModule */ = {
 			isa = PBXGroup;
 			children = (
+				A5E42ADA257F6F9A0010782B /* Model */,
+				A5E42AD9257F6F900010782B /* Presenter */,
+				A5E42AD8257F6F880010782B /* View */,
 			);
-			path = AuthModule;
+			path = RegisterEmailModule;
 			sourceTree = "<group>";
 		};
 		A5BCD8792576A80E00758EC0 /* Model */ = {
@@ -260,8 +282,7 @@
 				A5B25E5F2568409B0006BD67 /* ModuleBuilder */,
 				A5B25E65256840CA0006BD67 /* Services */,
 				A5B25E66256841380006BD67 /* CalendarMainModule */,
-				A5BCD8772576A78900758EC0 /* AuthSelectModule */,
-				A5BCD8782576A7C000758EC0 /* AuthModule */,
+				A5E42AF1257F79770010782B /* Authentication */,
 				A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */,
 				A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */,
 				A5CE3F7C2567EBB100C44CE9 /* Main.storyboard */,
@@ -289,6 +310,73 @@
 				A5CE3F9A2567EBB400C44CE9 /* Info.plist */,
 			);
 			path = monofin_mvpUITests;
+			sourceTree = "<group>";
+		};
+		A5E42AD8257F6F880010782B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */,
+				A5E42ADC257F6FC90010782B /* RegisterEmailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5E42AD9257F6F900010782B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5E42ADA257F6F9A0010782B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A5E42AF1257F79770010782B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A5E42AF2257F79CA0010782B /* LoginModule */,
+				A5BCD8772576A78900758EC0 /* AuthSelectModule */,
+				A5BCD8782576A7C000758EC0 /* RegisterEmailModule */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A5E42AF2257F79CA0010782B /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				A5E42AF5257F7BD30010782B /* Model */,
+				A5E42AF4257F7BC90010782B /* Presenter */,
+				A5E42AF3257F7BC20010782B /* View */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		A5E42AF3257F7BC20010782B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5E42AF6257F7BEE0010782B /* LoginViewController.swift */,
+				A5E42AF7257F7BEE0010782B /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5E42AF4257F7BC90010782B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A5E42B02257F8B070010782B /* LoginModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5E42AF5257F7BD30010782B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FC7C2523500423433E04E733 /* Pods */ = {
@@ -418,8 +506,10 @@
 				A5B25EA4256983BC0006BD67 /* CalendarCustomCell.xib in Resources */,
 				A5CE3F802567EBB300C44CE9 /* Assets.xcassets in Resources */,
 				A5BCD8802576ACF600758EC0 /* AuthSelectViewController.xib in Resources */,
+				A5E42ADF257F6FC90010782B /* RegisterEmailViewController.xib in Resources */,
 				A5CE3F7E2567EBB100C44CE9 /* Main.storyboard in Resources */,
 				A5BCD88F2576BCA800758EC0 /* GoogleService-Info.plist in Resources */,
+				A5E42AFA257F7BEE0010782B /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +517,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E42AFB257F7BEE0010782B /* LoginViewController.xib in Resources */,
 				A5BCD8812576ACF600758EC0 /* AuthSelectViewController.xib in Resources */,
+				A5E42AE0257F6FC90010782B /* RegisterEmailViewController.xib in Resources */,
 				A5B25E6F256841B50006BD67 /* CalendarMainViewController.xib in Resources */,
 				A5BCD8902576BCA800758EC0 /* GoogleService-Info.plist in Resources */,
 			);
@@ -571,11 +663,15 @@
 				A5B25E8125695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5BCD8892576AD4900758EC0 /* AuthSelectPresenter.swift in Sources */,
 				A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */,
+				A5E42AD1257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */,
 				A5B25E542568404A0006BD67 /* Router.swift in Sources */,
 				A5BCD87E2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
 				A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */,
 				A5B25E6C256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
+				A5E42ADD257F6FC90010782B /* RegisterEmailViewController.swift in Sources */,
+				A5E42B03257F8B070010782B /* LoginModulePresenter.swift in Sources */,
 				A5B25E5B256840950006BD67 /* ModuleBuilder.swift in Sources */,
+				A5E42AF8257F7BEE0010782B /* LoginViewController.swift in Sources */,
 				A5CE3F792567EBB100C44CE9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,8 +680,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E42B04257F8B070010782B /* LoginModulePresenter.swift in Sources */,
 				A5B25E8225695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5B25E6D256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
+				A5E42AD2257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */,
+				A5E42ADE257F6FC90010782B /* RegisterEmailViewController.swift in Sources */,
+				A5E42AF9257F7BEE0010782B /* LoginViewController.swift in Sources */,
 				A5BCD88A2576AD4900758EC0 /* AuthSelectPresenter.swift in Sources */,
 				A5BCD87F2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
 				A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */,

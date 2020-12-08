@@ -13,5 +13,16 @@ protocol CalendarOutProtocol: class {
 }
 
 protocol CalendarInProtocol: class {
-    
+    init(router: RouterOutputProtocol)
+    func addTapped()
+}
+
+class CalendarMainPresenter: CalendarInProtocol {
+    var router: RouterOutputProtocol?
+    required init(router: RouterOutputProtocol) {
+        self.router = router
+    }
+    func addTapped() {
+        router?.showAuthSelectViewController()
+    }
 }

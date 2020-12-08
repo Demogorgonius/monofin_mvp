@@ -18,6 +18,10 @@ class AuthSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authWithPhoneButton.layer.cornerRadius = authWithPhoneButton.layer.bounds.height/2
+        authWithFacebookButton.layer.cornerRadius = authWithFacebookButton.layer.bounds.height/2
+        authWithEmailButton.layer.cornerRadius = authWithEmailButton.layer.bounds.height/2
 
     }
 

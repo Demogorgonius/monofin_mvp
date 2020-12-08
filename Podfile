@@ -10,7 +10,7 @@ target 'monofin_mvp' do
 	pod 'Firebase/Analytics'
 	pod 'FlagPhoneNumber'
 	pod 'Firebase'
-	pod 'Firebase\Auth'
+	pod 'Firebase/Auth'
   target 'monofin_mvpTests' do
     inherit! :search_paths
     # Pods for testing
@@ -18,7 +18,7 @@ target 'monofin_mvp' do
 	pod 'Firebase/Analytics'
         pod 'FlagPhoneNumber'
         pod 'Firebase'
-        pod 'Firebase\Auth'
+        pod 'Firebase/Auth'
   end
 
   target 'monofin_mvpUITests' do
