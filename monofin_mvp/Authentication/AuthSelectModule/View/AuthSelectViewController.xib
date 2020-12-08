@@ -13,6 +13,7 @@
                 <outlet property="authWithEmailButton" destination="eDT-XC-x90" id="RrG-bC-UVE"/>
                 <outlet property="authWithFacebookButton" destination="yRq-mS-P5X" id="5an-I1-o5r"/>
                 <outlet property="authWithPhoneButton" destination="JB6-Eo-6tk" id="DfW-3w-WH9"/>
+                <outlet property="backgroundImageView" destination="CvD-Fv-U9M" id="bRf-Fd-0KR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,6 +22,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashScreenX" translatesAutoresizingMaskIntoConstraints="NO" id="CvD-Fv-U9M">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="T6N-rx-T7B" userLabel="AuthMethodStack">
                     <rect key="frame" x="16" y="364.5" width="382" height="177"/>
                     <subviews>
@@ -70,15 +74,20 @@
             <color key="backgroundColor" systemColor="systemTealColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T6N-rx-T7B" secondAttribute="trailing" constant="16" id="0e9-Sr-7Kw"/>
+                <constraint firstItem="CvD-Fv-U9M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="H80-1c-jHy"/>
                 <constraint firstItem="59D-RX-Vvl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="MiM-0J-rLP"/>
                 <constraint firstItem="T6N-rx-T7B" firstAttribute="top" secondItem="59D-RX-Vvl" secondAttribute="bottom" constant="33.5" id="aNM-I3-aG0"/>
+                <constraint firstItem="CvD-Fv-U9M" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bF8-53-3xC"/>
+                <constraint firstItem="CvD-Fv-U9M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bw6-Lm-d6Q"/>
                 <constraint firstItem="T6N-rx-T7B" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="cLm-qB-N0M"/>
+                <constraint firstAttribute="bottom" secondItem="CvD-Fv-U9M" secondAttribute="bottom" id="mBp-QP-Czn"/>
                 <constraint firstItem="T6N-rx-T7B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="pKu-D5-GQP"/>
             </constraints>
-            <point key="canvasLocation" x="141" y="136"/>
+            <point key="canvasLocation" x="140.57971014492756" y="135.9375"/>
         </view>
     </objects>
     <resources>
+        <image name="SplashScreenX" width="375" height="812"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

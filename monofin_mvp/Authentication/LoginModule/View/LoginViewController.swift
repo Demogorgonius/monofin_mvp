@@ -35,14 +35,17 @@ class LoginViewController: UIViewController {
 
         loginButton.layer.cornerRadius = loginButton.layer.bounds.height/2
         registerButton.layer.cornerRadius = registerButton.layer.bounds.height/2
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         blurredEffectView.frame = imageView.bounds
         view.addSubview(blurredEffectView)
         let subViewCount = view.subviews.count
         view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
-        
-        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
 
 }
