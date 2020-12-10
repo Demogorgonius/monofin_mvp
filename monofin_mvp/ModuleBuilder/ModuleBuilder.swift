@@ -38,11 +38,19 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     func createAuthSelectModule(router: RouterOutputProtocol) -> UIViewController {
         
         let view = AuthSelectViewController()
+        let presenter = AuthSelectPresenter(router: router)
+        let alert =  AlertController()
+        view.presenter = presenter
+        view.alert = alert
         return view
     }
     
     func createRegisterEmailModule(router: RouterOutputProtocol) -> UIViewController {
         let view = RegisterEmailViewController()
+        let alert = AlertController()
+        let presenter = RegisterEmailPresenter(view: view, router: router, alert: alert)
+        view.presenter = presenter
+        view.alert = alert
         return view
     }
     

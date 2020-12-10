@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		78E7FF11B0311D77A5A82F76 /* Pods_monofin_mvpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B07E164204EFD882092A89 /* Pods_monofin_mvpTests.framework */; };
+		A50FC306258155750085A5B7 /* ErrorsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FC305258155750085A5B7 /* ErrorsList.swift */; };
+		A50FC307258155750085A5B7 /* ErrorsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FC305258155750085A5B7 /* ErrorsList.swift */; };
+		A52C1174257FE13B009EDAB2 /* RegisterEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1173257FE13B009EDAB2 /* RegisterEmailPresenter.swift */; };
+		A52C1179257FE443009EDAB2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1178257FE443009EDAB2 /* UserInfo.swift */; };
+		A52C117A257FE443009EDAB2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1178257FE443009EDAB2 /* UserInfo.swift */; };
+		A52C1182257FFDD4009EDAB2 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1181257FFDD4009EDAB2 /* AlertController.swift */; };
+		A52C1183257FFDD4009EDAB2 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1181257FFDD4009EDAB2 /* AlertController.swift */; };
 		A5B25E542568404A0006BD67 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E532568404A0006BD67 /* Router.swift */; };
 		A5B25E5B256840950006BD67 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E5A256840950006BD67 /* ModuleBuilder.swift */; };
 		A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E60256840C50006BD67 /* CoreDataManager.swift */; };
@@ -73,6 +80,10 @@
 		82C4883547939509AF5D3B09 /* Pods-monofin_mvpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvpTests.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvpTests/Pods-monofin_mvpTests.release.xcconfig"; sourceTree = "<group>"; };
 		84887DD37BBF0CEF365B8D63 /* Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvp-monofin_mvpUITests/Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig"; sourceTree = "<group>"; };
 		858FDA424D072BAC2AF3BE2E /* Pods-monofin_mvp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvp/Pods-monofin_mvp.release.xcconfig"; sourceTree = "<group>"; };
+		A50FC305258155750085A5B7 /* ErrorsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsList.swift; sourceTree = "<group>"; };
+		A52C1173257FE13B009EDAB2 /* RegisterEmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailPresenter.swift; sourceTree = "<group>"; };
+		A52C1178257FE443009EDAB2 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		A52C1181257FFDD4009EDAB2 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		A5B25E532568404A0006BD67 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A5B25E5A256840950006BD67 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		A5B25E60256840C50006BD67 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -169,6 +180,8 @@
 			children = (
 				A5B25E60256840C50006BD67 /* CoreDataManager.swift */,
 				A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */,
+				A52C1181257FFDD4009EDAB2 /* AlertController.swift */,
+				A50FC305258155750085A5B7 /* ErrorsList.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,6 +337,7 @@
 		A5E42AD9257F6F900010782B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				A52C1173257FE13B009EDAB2 /* RegisterEmailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -331,6 +345,7 @@
 		A5E42ADA257F6F9A0010782B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A52C1178257FE443009EDAB2 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -663,13 +678,17 @@
 				A5B25E8125695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5BCD8892576AD4900758EC0 /* AuthSelectPresenter.swift in Sources */,
 				A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */,
+				A52C1179257FE443009EDAB2 /* UserInfo.swift in Sources */,
+				A52C1174257FE13B009EDAB2 /* RegisterEmailPresenter.swift in Sources */,
 				A5E42AD1257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */,
 				A5B25E542568404A0006BD67 /* Router.swift in Sources */,
+				A52C1182257FFDD4009EDAB2 /* AlertController.swift in Sources */,
 				A5BCD87E2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
 				A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */,
 				A5B25E6C256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
 				A5E42ADD257F6FC90010782B /* RegisterEmailViewController.swift in Sources */,
 				A5E42B03257F8B070010782B /* LoginModulePresenter.swift in Sources */,
+				A50FC306258155750085A5B7 /* ErrorsList.swift in Sources */,
 				A5B25E5B256840950006BD67 /* ModuleBuilder.swift in Sources */,
 				A5E42AF8257F7BEE0010782B /* LoginViewController.swift in Sources */,
 				A5CE3F792567EBB100C44CE9 /* SceneDelegate.swift in Sources */,
@@ -688,6 +707,9 @@
 				A5E42AF9257F7BEE0010782B /* LoginViewController.swift in Sources */,
 				A5BCD88A2576AD4900758EC0 /* AuthSelectPresenter.swift in Sources */,
 				A5BCD87F2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
+				A50FC307258155750085A5B7 /* ErrorsList.swift in Sources */,
+				A52C1183257FFDD4009EDAB2 /* AlertController.swift in Sources */,
+				A52C117A257FE443009EDAB2 /* UserInfo.swift in Sources */,
 				A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

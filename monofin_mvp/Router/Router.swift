@@ -17,6 +17,7 @@ protocol RouterOutputProtocol: RouterInputProtocol {
     func initialViewController()
     func showAuthSelectViewController()
     func loginViewController()
+    func showRegisterEmailViewController()
 }
 
 class Router: RouterOutputProtocol {
@@ -47,6 +48,13 @@ class Router: RouterOutputProtocol {
         if let navigationVC = navigationVC {
             guard let authSelectVC = assemblyBuilder?.createAuthSelectModule(router: self) else { return }
             navigationVC.pushViewController(authSelectVC, animated: true)
+        }
+    }
+    
+    func showRegisterEmailViewController() {
+        if let navigationVC = navigationVC {
+            guard let registerEmailVC = assemblyBuilder?.createRegisterEmailModule(router: self) else { return }
+            navigationVC.pushViewController(registerEmailVC, animated: true)
         }
     }
     

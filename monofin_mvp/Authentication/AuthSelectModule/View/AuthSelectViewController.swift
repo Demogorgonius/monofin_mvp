@@ -16,6 +16,8 @@ class AuthSelectViewController: UIViewController {
     @IBOutlet weak var authWithEmailButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    var presenter: AuthSelectProtocol!
+    var alert: AlertOutputProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,7 @@ class AuthSelectViewController: UIViewController {
     }
     
     @IBAction func authWithEmailTapped(_ sender: Any) {
-        
+        presenter.emailAuthTaped()
     }
     
 }
