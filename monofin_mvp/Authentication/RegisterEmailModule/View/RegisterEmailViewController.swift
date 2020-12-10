@@ -42,28 +42,9 @@ class RegisterEmailViewController: UIViewController {
         let pasConform = passwordConformTextField.text!
         do {
             let checkReasult = try presenter.inputCheck(userName: userName, email: email, password: password, passwordConform: pasConform)
-        } catch ValidateInputError.emptyString {
-            
-            present(alert.showAlert(title: "Ошибка", message: "Все поля должны быть заполнены!"), animated: true)
-            
-        } catch ValidateInputError.userNameError {
-            
-            present(alert.showAlert(title: "Ошибка", message: "Некоректное имя пользователя!"), animated: true)
-        } catch ValidateInputError.wrongSymbolsEmail {
-            
-            present(alert.showAlert(title: "Ошибка", message: "Некоректный e-mail адрес!"), animated: true)
-        
-        } catch ValidateInputError.passwordIncorrect {
-            
-            present(alert.showAlert(title: "Ошибка", message: "Некоректный пароль!"), animated: true)
-            
-        } catch ValidateInputError.passwordNotMatch {
-            
-            present(alert.showAlert(title: "Ошибка", message: "Пароли не совпадают!"), animated: true)
-            
         } catch {
             
-            present(alert.showAlert(title: "Ошибка", message: "Что-то пошло не так! =)"), animated: true)
+            present(alert.showAlert(title: "Ошибка", message: error.localizedDescription), animated: true)
             
         }
         
