@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol RegisterEmailInputProtocol: class {
-    func showAlert(title: String, message: String)
     func success()
     func failure(error: Error)
 }
