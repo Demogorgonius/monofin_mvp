@@ -14,9 +14,10 @@ protocol RegisterEmailInputProtocol: class {
 }
 
 protocol RegisterEmailOutputProtocol: class {
-    init(view: RegisterEmailInputProtocol, router: RouterOutputProtocol, alert: AlertOutputProtocol)
-    func registerTap()
+    init(view: RegisterEmailInputProtocol, router: RouterOutputProtocol, alert: AlertOutputProtocol, firebaseAuthManager: FireBaseInputProtocol)
+    func registerTap(userName: String, email: String, password: String)
     func inputCheck(userName: String, email: String, password: String, passwordConform: String) throws -> Bool
+    func toMainScreenIfSuccess()
     var userInfo: UserInfo? { get set }
 }
 
@@ -25,16 +26,36 @@ class RegisterEmailPresenter: RegisterEmailOutputProtocol {
     weak var view: RegisterEmailInputProtocol?
     var router: RouterOutputProtocol?
     var alert: AlertOutputProtocol?
+    
+    // ||||||| next string ||||||||| Check it |||||||||||||
+    
+    var firebaseAuthManager: FireBaseInputProtocol?
+    
     var userInfo: UserInfo?
     
-    required init(view: RegisterEmailInputProtocol, router: RouterOutputProtocol, alert: AlertOutputProtocol) {
+    
+    required init(view: RegisterEmailInputProtocol, router: RouterOutputProtocol, alert: AlertOutputProtocol, firebaseAuthManager: FireBaseInputProtocol) {
         self.view = view
         self.router = router
         self.alert = alert
+        self.firebaseAuthManager = firebaseAuthManager
     }
     
-    func registerTap() {
-        
+    func toMainScreenIfSuccess() {
+        router?.initialViewController()
+    }
+    
+    func registerTap(userName: String, email: String, password: String) {
+        firebaseAuthManager?.createUser(userName: userName, email: email, password: password, completionBlock: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(_):
+                self.view?.success()
+            case .failure(let error):
+                self.view?.failure(error: error)
+            
+            }
+        })
     }
     
     func inputCheck(userName: String, email: String, password: String, passwordConform: String) throws -> Bool {

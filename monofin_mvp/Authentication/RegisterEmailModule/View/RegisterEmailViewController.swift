@@ -41,16 +41,20 @@ class RegisterEmailViewController: UIViewController {
     //MARK: - @IBAction
     
     @IBAction func registerButtonTapped(_ sender: Any) {
+        var checkResault: Bool?
         if let userName = userNameTextField.text,
            let email = emailTextField.text,
            let password = passwordTextField.text,
            let pasConform = passwordConformTextField.text {
             do {
-                let checkReasult = try presenter.inputCheck(userName: userName, email: email, password: password, passwordConform: pasConform)
+                checkResault = try presenter.inputCheck(userName: userName, email: email, password: password, passwordConform: pasConform)
             } catch {
                 
                 present(alert.showAlert(title: "Ошибка", message: error.localizedDescription), animated: true)
                 
+            }
+            if checkResault == true {
+                presenter.registerTap(userName: userName, email: email, password: password)
             }
             
         }
@@ -86,11 +90,11 @@ class RegisterEmailViewController: UIViewController {
 extension RegisterEmailViewController: RegisterEmailInputProtocol {
     
     func success() {
-        
+        presenter.toMainScreenIfSuccess()
     }
     
     func failure(error: Error) {
-        
+        present(alert.showAlert(title: "Ошибка регистрации", message: error.localizedDescription), animated: true)
     }
     
     

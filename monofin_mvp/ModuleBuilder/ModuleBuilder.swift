@@ -46,9 +46,10 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     }
     
     func createRegisterEmailModule(router: RouterOutputProtocol) -> UIViewController {
+        let firebaseAuthManager = FireBaseAuthManager()
         let view = RegisterEmailViewController()
         let alert = AlertController()
-        let presenter = RegisterEmailPresenter(view: view, router: router, alert: alert)
+        let presenter = RegisterEmailPresenter(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager)
         view.presenter = presenter
         view.alert = alert
         return view
