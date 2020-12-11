@@ -50,6 +50,7 @@ class RegisterEmailPresenter: RegisterEmailOutputProtocol {
             guard let self = self else { return }
             switch result {
             case .success(_):
+                
                 self.view?.success()
             case .failure(let error):
                 self.view?.failure(error: error)

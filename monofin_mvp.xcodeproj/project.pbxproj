@@ -109,6 +109,8 @@
 		A5CE3F942567EBB400C44CE9 /* monofin_mvpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = monofin_mvpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CE3F982567EBB400C44CE9 /* monofin_mvpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monofin_mvpUITests.swift; sourceTree = "<group>"; };
 		A5CE3F9A2567EBB400C44CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DF5C9A2583F7250061EB09 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		A5DF5C9E2583F7270061EB09 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthManager.swift; sourceTree = "<group>"; };
 		A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
 		A5E42ADC257F6FC90010782B /* RegisterEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterEmailViewController.xib; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = A5CE3F6A2567EBB100C44CE9;
 			productRefGroup = A5CE3F742567EBB100C44CE9 /* Products */;
@@ -742,6 +745,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A5CE3F7D2567EBB100C44CE9 /* Base */,
+				A5DF5C9A2583F7250061EB09 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -750,6 +754,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A5CE3F822567EBB300C44CE9 /* Base */,
+				A5DF5C9E2583F7270061EB09 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -761,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -822,6 +828,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

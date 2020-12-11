@@ -27,6 +27,7 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                         if let error = error {
                             completionBlock(.failure(error))
                         } else {
+                            UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "uid")
                             completionBlock(.success(true))
                         }
                     }

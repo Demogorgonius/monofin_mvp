@@ -90,6 +90,7 @@ class RegisterEmailViewController: UIViewController {
 extension RegisterEmailViewController: RegisterEmailInputProtocol {
     
     func success() {
+        
         presenter.toMainScreenIfSuccess()
     }
     
