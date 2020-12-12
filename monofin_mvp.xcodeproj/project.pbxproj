@@ -41,6 +41,24 @@
 		A5CE3F832567EBB300C44CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE3F812567EBB300C44CE9 /* LaunchScreen.storyboard */; };
 		A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F8D2567EBB300C44CE9 /* monofin_mvpTests.swift */; };
 		A5CE3F992567EBB400C44CE9 /* monofin_mvpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3F982567EBB400C44CE9 /* monofin_mvpUITests.swift */; };
+		A5DF5CA9258510C40061EB09 /* LoginSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CA7258510C40061EB09 /* LoginSelectViewController.swift */; };
+		A5DF5CAA258510C40061EB09 /* LoginSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CA7258510C40061EB09 /* LoginSelectViewController.swift */; };
+		A5DF5CAB258510C40061EB09 /* LoginSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF5CA8258510C40061EB09 /* LoginSelectViewController.xib */; };
+		A5DF5CAC258510C40061EB09 /* LoginSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF5CA8258510C40061EB09 /* LoginSelectViewController.xib */; };
+		A5DF5CB4258510ED0061EB09 /* LoginSelectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CB3258510ED0061EB09 /* LoginSelectPresenter.swift */; };
+		A5DF5CB5258510ED0061EB09 /* LoginSelectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CB3258510ED0061EB09 /* LoginSelectPresenter.swift */; };
+		A5DF5CBE258511400061EB09 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CBC258511400061EB09 /* LoginEmailViewController.swift */; };
+		A5DF5CBF258511400061EB09 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CBC258511400061EB09 /* LoginEmailViewController.swift */; };
+		A5DF5CC0258511400061EB09 /* LoginEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF5CBD258511400061EB09 /* LoginEmailViewController.xib */; };
+		A5DF5CC1258511400061EB09 /* LoginEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF5CBD258511400061EB09 /* LoginEmailViewController.xib */; };
+		A5DF5CC9258511770061EB09 /* LoginEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CC8258511770061EB09 /* LoginEmailPresenter.swift */; };
+		A5DF5CCA258511770061EB09 /* LoginEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CC8258511770061EB09 /* LoginEmailPresenter.swift */; };
+		A5DF5CD5258580740061EB09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CD3258580740061EB09 /* SettingsViewController.swift */; };
+		A5DF5CD6258580740061EB09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CD3258580740061EB09 /* SettingsViewController.swift */; };
+		A5DF5CD7258580740061EB09 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF5CD4258580740061EB09 /* SettingsViewController.xib */; };
+		A5DF5CD8258580740061EB09 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DF5CD4258580740061EB09 /* SettingsViewController.xib */; };
+		A5DF5CE0258580950061EB09 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CDF258580950061EB09 /* SettingsPresenter.swift */; };
+		A5DF5CE1258580950061EB09 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF5CDF258580950061EB09 /* SettingsPresenter.swift */; };
 		A5E42AD1257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */; };
 		A5E42AD2257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */; };
 		A5E42ADD257F6FC90010782B /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */; };
@@ -111,6 +129,15 @@
 		A5CE3F9A2567EBB400C44CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5DF5C9A2583F7250061EB09 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		A5DF5C9E2583F7270061EB09 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A5DF5CA7258510C40061EB09 /* LoginSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSelectViewController.swift; sourceTree = "<group>"; };
+		A5DF5CA8258510C40061EB09 /* LoginSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginSelectViewController.xib; sourceTree = "<group>"; };
+		A5DF5CB3258510ED0061EB09 /* LoginSelectPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSelectPresenter.swift; sourceTree = "<group>"; };
+		A5DF5CBC258511400061EB09 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
+		A5DF5CBD258511400061EB09 /* LoginEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginEmailViewController.xib; sourceTree = "<group>"; };
+		A5DF5CC8258511770061EB09 /* LoginEmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailPresenter.swift; sourceTree = "<group>"; };
+		A5DF5CD3258580740061EB09 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A5DF5CD4258580740061EB09 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		A5DF5CDF258580950061EB09 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthManager.swift; sourceTree = "<group>"; };
 		A5E42ADB257F6FC90010782B /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
 		A5E42ADC257F6FC90010782B /* RegisterEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterEmailViewController.xib; sourceTree = "<group>"; };
@@ -298,6 +325,7 @@
 				A5B25E65256840CA0006BD67 /* Services */,
 				A5B25E66256841380006BD67 /* CalendarMainModule */,
 				A5E42AF1257F79770010782B /* Authentication */,
+				A5DF5CCF25857FE70061EB09 /* SettingsModule */,
 				A5CE3F762567EBB100C44CE9 /* AppDelegate.swift */,
 				A5CE3F782567EBB100C44CE9 /* SceneDelegate.swift */,
 				A5CE3F7C2567EBB100C44CE9 /* Main.storyboard */,
@@ -325,6 +353,108 @@
 				A5CE3F9A2567EBB400C44CE9 /* Info.plist */,
 			);
 			path = monofin_mvpUITests;
+			sourceTree = "<group>";
+		};
+		A5DF5CA2258510190061EB09 /* LoginSelectModule */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CA4258510370061EB09 /* Model */,
+				A5DF5CA5258510450061EB09 /* Presenter */,
+				A5DF5CA32585102F0061EB09 /* View */,
+			);
+			path = LoginSelectModule;
+			sourceTree = "<group>";
+		};
+		A5DF5CA32585102F0061EB09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CA7258510C40061EB09 /* LoginSelectViewController.swift */,
+				A5DF5CA8258510C40061EB09 /* LoginSelectViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5DF5CA4258510370061EB09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A5DF5CA5258510450061EB09 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CB3258510ED0061EB09 /* LoginSelectPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5DF5CA6258510610061EB09 /* LoginEmailModule */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CBA2585110E0061EB09 /* Model */,
+				A5DF5CBB2585111A0061EB09 /* Presenter */,
+				A5DF5CB9258511050061EB09 /* View */,
+			);
+			path = LoginEmailModule;
+			sourceTree = "<group>";
+		};
+		A5DF5CB9258511050061EB09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CBC258511400061EB09 /* LoginEmailViewController.swift */,
+				A5DF5CBD258511400061EB09 /* LoginEmailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5DF5CBA2585110E0061EB09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A5DF5CBB2585111A0061EB09 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CC8258511770061EB09 /* LoginEmailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5DF5CCF25857FE70061EB09 /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CD2258580200061EB09 /* Model */,
+				A5DF5CD1258580160061EB09 /* Presenter */,
+				A5DF5CD0258580090061EB09 /* View */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
+		A5DF5CD0258580090061EB09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CD3258580740061EB09 /* SettingsViewController.swift */,
+				A5DF5CD4258580740061EB09 /* SettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5DF5CD1258580160061EB09 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF5CDF258580950061EB09 /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5DF5CD2258580200061EB09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A5E42AD8257F6F880010782B /* View */ = {
@@ -355,6 +485,8 @@
 		A5E42AF1257F79770010782B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A5DF5CA6258510610061EB09 /* LoginEmailModule */,
+				A5DF5CA2258510190061EB09 /* LoginSelectModule */,
 				A5E42AF2257F79CA0010782B /* LoginModule */,
 				A5BCD8772576A78900758EC0 /* AuthSelectModule */,
 				A5BCD8782576A7C000758EC0 /* RegisterEmailModule */,
@@ -523,11 +655,14 @@
 				A5B25E6E256841B50006BD67 /* CalendarMainViewController.xib in Resources */,
 				A5B25EA4256983BC0006BD67 /* CalendarCustomCell.xib in Resources */,
 				A5CE3F802567EBB300C44CE9 /* Assets.xcassets in Resources */,
+				A5DF5CAB258510C40061EB09 /* LoginSelectViewController.xib in Resources */,
 				A5BCD8802576ACF600758EC0 /* AuthSelectViewController.xib in Resources */,
 				A5E42ADF257F6FC90010782B /* RegisterEmailViewController.xib in Resources */,
+				A5DF5CD7258580740061EB09 /* SettingsViewController.xib in Resources */,
 				A5CE3F7E2567EBB100C44CE9 /* Main.storyboard in Resources */,
 				A5BCD88F2576BCA800758EC0 /* GoogleService-Info.plist in Resources */,
 				A5E42AFA257F7BEE0010782B /* LoginViewController.xib in Resources */,
+				A5DF5CC0258511400061EB09 /* LoginEmailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +671,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E42AFB257F7BEE0010782B /* LoginViewController.xib in Resources */,
+				A5DF5CC1258511400061EB09 /* LoginEmailViewController.xib in Resources */,
 				A5BCD8812576ACF600758EC0 /* AuthSelectViewController.xib in Resources */,
+				A5DF5CD8258580740061EB09 /* SettingsViewController.xib in Resources */,
+				A5DF5CAC258510C40061EB09 /* LoginSelectViewController.xib in Resources */,
 				A5E42AE0257F6FC90010782B /* RegisterEmailViewController.xib in Resources */,
 				A5B25E6F256841B50006BD67 /* CalendarMainViewController.xib in Resources */,
 				A5BCD8902576BCA800758EC0 /* GoogleService-Info.plist in Resources */,
@@ -683,16 +821,22 @@
 				A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */,
 				A52C1179257FE443009EDAB2 /* UserInfo.swift in Sources */,
 				A52C1174257FE13B009EDAB2 /* RegisterEmailPresenter.swift in Sources */,
+				A5DF5CB4258510ED0061EB09 /* LoginSelectPresenter.swift in Sources */,
 				A5E42AD1257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */,
 				A5B25E542568404A0006BD67 /* Router.swift in Sources */,
 				A52C1182257FFDD4009EDAB2 /* AlertController.swift in Sources */,
 				A5BCD87E2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
+				A5DF5CE0258580950061EB09 /* SettingsPresenter.swift in Sources */,
 				A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */,
 				A5B25E6C256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
 				A5E42ADD257F6FC90010782B /* RegisterEmailViewController.swift in Sources */,
 				A5E42B03257F8B070010782B /* LoginModulePresenter.swift in Sources */,
+				A5DF5CD5258580740061EB09 /* SettingsViewController.swift in Sources */,
+				A5DF5CA9258510C40061EB09 /* LoginSelectViewController.swift in Sources */,
 				A50FC306258155750085A5B7 /* ErrorsList.swift in Sources */,
+				A5DF5CC9258511770061EB09 /* LoginEmailPresenter.swift in Sources */,
 				A5B25E5B256840950006BD67 /* ModuleBuilder.swift in Sources */,
+				A5DF5CBE258511400061EB09 /* LoginEmailViewController.swift in Sources */,
 				A5E42AF8257F7BEE0010782B /* LoginViewController.swift in Sources */,
 				A5CE3F792567EBB100C44CE9 /* SceneDelegate.swift in Sources */,
 			);
@@ -703,15 +847,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E42B04257F8B070010782B /* LoginModulePresenter.swift in Sources */,
+				A5DF5CAA258510C40061EB09 /* LoginSelectViewController.swift in Sources */,
+				A5DF5CB5258510ED0061EB09 /* LoginSelectPresenter.swift in Sources */,
 				A5B25E8225695CFF0006BD67 /* CalendarMainPresenter.swift in Sources */,
 				A5B25E6D256841B50006BD67 /* CalendarMainViewController.swift in Sources */,
+				A5DF5CE1258580950061EB09 /* SettingsPresenter.swift in Sources */,
 				A5E42AD2257E1F1B0010782B /* FireBaseAuthManager.swift in Sources */,
 				A5E42ADE257F6FC90010782B /* RegisterEmailViewController.swift in Sources */,
 				A5E42AF9257F7BEE0010782B /* LoginViewController.swift in Sources */,
 				A5BCD88A2576AD4900758EC0 /* AuthSelectPresenter.swift in Sources */,
+				A5DF5CBF258511400061EB09 /* LoginEmailViewController.swift in Sources */,
 				A5BCD87F2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
 				A50FC307258155750085A5B7 /* ErrorsList.swift in Sources */,
+				A5DF5CD6258580740061EB09 /* SettingsViewController.swift in Sources */,
 				A52C1183257FFDD4009EDAB2 /* AlertController.swift in Sources */,
+				A5DF5CCA258511770061EB09 /* LoginEmailPresenter.swift in Sources */,
 				A52C117A257FE443009EDAB2 /* UserInfo.swift in Sources */,
 				A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */,
 			);

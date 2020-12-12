@@ -8,18 +8,18 @@
 import Foundation
 
 protocol LoginModuleInputProtocol: class {
-    init(router: RouterOutputProtocol)
+    init(router: RouterInputProtocol)
     func loginTapped()
     func registerTapped()
 }
 
 class LoginModulePresenter: LoginModuleInputProtocol {
-    var router: RouterOutputProtocol?
-    required init(router: RouterOutputProtocol) {
+    var router: RouterInputProtocol?
+    required init(router: RouterInputProtocol) {
         self.router = router
     }
     func loginTapped() {
-        router?.showAuthSelectViewController()
+        router?.showLoginSelectViewController()
     }
     
     func registerTapped() {

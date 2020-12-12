@@ -9,15 +9,21 @@ import Foundation
 
 protocol AssemblyBuilderProtocol {
     
-    func createCalendarMainModule(router: RouterOutputProtocol) -> UIViewController
-    func createAuthSelectModule(router: RouterOutputProtocol) -> UIViewController
-    func createRegisterEmailModule(router: RouterOutputProtocol) -> UIViewController
-    func createLoginModule(router: RouterOutputProtocol) -> UIViewController
+    func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController
+    func createAuthSelectModule(router: RouterInputProtocol) -> UIViewController
+    func createRegisterEmailModule(router: RouterInputProtocol) -> UIViewController
+    func createLoginModule(router: RouterInputProtocol) -> UIViewController
+    func createLoginSelectModule(router: RouterInputProtocol) -> UIViewController
+    func createLoginEmailModule(router: RouterInputProtocol) -> UIViewController
+    func createSettingsModule(router: RouterInputProtocol) -> UIViewController
     
 }
 
 class AssemblyModuleBuilder: AssemblyBuilderProtocol {
-    func createCalendarMainModule(router: RouterOutputProtocol) -> UIViewController {
+    
+    
+    
+    func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController {
         
         let view = CalendarMainViewController()
         let presenter = CalendarMainPresenter(router: router)
@@ -26,7 +32,7 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         
     }
     
-    func createLoginModule(router: RouterOutputProtocol) -> UIViewController {
+    func createLoginModule(router: RouterInputProtocol) -> UIViewController {
         
         let view = LoginViewController()
         let presenter = LoginModulePresenter(router: router)
@@ -35,7 +41,7 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         
     }
     
-    func createAuthSelectModule(router: RouterOutputProtocol) -> UIViewController {
+    func createAuthSelectModule(router: RouterInputProtocol) -> UIViewController {
         
         let view = AuthSelectViewController()
         let presenter = AuthSelectPresenter(router: router)
@@ -43,9 +49,11 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         view.presenter = presenter
         view.alert = alert
         return view
+        
     }
     
-    func createRegisterEmailModule(router: RouterOutputProtocol) -> UIViewController {
+    func createRegisterEmailModule(router: RouterInputProtocol) -> UIViewController {
+        
         let firebaseAuthManager = FireBaseAuthManager()
         let view = RegisterEmailViewController()
         let alert = AlertController()
@@ -53,6 +61,37 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         view.presenter = presenter
         view.alert = alert
         return view
+        
     }
     
+    func createLoginSelectModule(router: RouterInputProtocol) -> UIViewController {
+        
+        let view = LoginSelectViewController()
+        let presenter = LoginSelectPresenter(router: router)
+        view.presenter = presenter
+        return view
+        
+    }
+    
+    func createLoginEmailModule(router: RouterInputProtocol) -> UIViewController {
+        
+        let firebaseAuthManager = FireBaseAuthManager()
+        let view = LoginEmailViewController()
+        let alert = AlertController()
+        let presenter = LoginEmailPresenter(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager)
+        view.presenter = presenter
+        view.alert = alert
+        return view
+        
+    }
+    
+    func createSettingsModule(router: RouterInputProtocol) -> UIViewController {
+        let firebaseAuthManager = FireBaseAuthManager()
+        let view = SettingsViewController()
+        let alert = AlertController()
+        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager)
+        view.presenter = presenter
+        view.alert = alert
+        return view
+    }
 }

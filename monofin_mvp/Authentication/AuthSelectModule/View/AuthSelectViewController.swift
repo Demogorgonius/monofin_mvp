@@ -17,7 +17,7 @@ class AuthSelectViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     var presenter: AuthSelectProtocol!
-    var alert: AlertOutputProtocol!
+    var alert: AlertInputProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class AuthSelectViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.alpha = 0.5
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Вернуться", style: .plain, target: nil, action: nil)
     }
 
 

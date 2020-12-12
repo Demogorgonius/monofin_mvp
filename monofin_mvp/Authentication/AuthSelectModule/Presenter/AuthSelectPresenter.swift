@@ -8,15 +8,15 @@
 import Foundation
 
 protocol AuthSelectProtocol: class {
-    init(router: RouterOutputProtocol)
+    init(router: RouterInputProtocol)
     func emailAuthTaped()
     func facebookAuthTapped()
     func phoneAuthTapped()
 }
 
 class AuthSelectPresenter: AuthSelectProtocol {
-    var router: RouterOutputProtocol?
-    required init(router: RouterOutputProtocol) {
+    var router: RouterInputProtocol?
+    required init(router: RouterInputProtocol) {
         self.router = router
     }
     

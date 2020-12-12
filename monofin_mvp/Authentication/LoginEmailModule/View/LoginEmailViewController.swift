@@ -1,81 +1,78 @@
 //
-//  AuthEmailViewController.swift
+//  LoginEmailViewController.swift
 //  monofin_mvp
 //
-//  Created by Sergey on 08.12.2020.
+//  Created by Sergey on 12.12.2020.
 //
 
 import UIKit
 
-class RegisterEmailViewController: UIViewController {
-    
+class LoginEmailViewController: UIViewController {
+
     //MARK: - @IBOutlet
     
-    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordConformTextField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var backImageView: UIImageView!
     
-    var presenter: RegisterEmailInputProtocol!
+    //MARK: - Variables
+    
+    var presenter: LoginEmailInputProtocol!
     var alert: AlertInputProtocol!
+    
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterEmailViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterEmailViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //Actions with view if keyboar show and hide
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
-        registerButton.layer.cornerRadius = registerButton.layer.bounds.height/2
+        //change button style
+        
+        loginButton.layer.cornerRadius = loginButton.layer.bounds.height/2
         
         emailTextField.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         emailTextField.layer.borderWidth = 1.0
         emailTextField.layer.cornerRadius = emailTextField.layer.bounds.height/4
-        userNameTextField.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        userNameTextField.layer.borderWidth = 1.0
-        userNameTextField.layer.cornerRadius = userNameTextField.layer.bounds.height/4
         passwordTextField.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.cornerRadius = passwordTextField.layer.bounds.height/4
-        passwordConformTextField.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        passwordConformTextField.layer.borderWidth = 1.0
-        passwordConformTextField.layer.cornerRadius = passwordConformTextField.layer.bounds.height/4
+        passwordTextField.layer.borderWidth = 1.0
         
+        //change background style
         let blurEffect = UIBlurEffect(style: .dark)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        blurredEffectView.frame = backgroundImageView.bounds
+        blurredEffectView.frame = backImageView.bounds
         view.addSubview(blurredEffectView)
         let subViewCount = view.subviews.count
         view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
         
         view.addGestureRecognizer(tap)
-        
+
+       
     }
     
+    //MARK: - @IBActions
     
-    
-    //MARK: - @IBAction
-    
-    @IBAction func registerButtonTapped(_ sender: Any) {
+    @IBAction func loginButtonTap(_ sender: Any) {
         var checkResault: Bool?
-        if let userName = userNameTextField.text,
-           let email = emailTextField.text,
-           let password = passwordTextField.text,
-           let pasConform = passwordConformTextField.text {
+        if let email = emailTextField.text,
+           let password = passwordTextField.text {
             do {
-                checkResault = try presenter.inputCheck(userName: userName, email: email, password: password, passwordConform: pasConform)
+                checkResault = try presenter.validateInputParam(email: email, password: password)
             } catch {
                 
                 present(alert.showAlert(title: "Ошибка", message: error.localizedDescription), animated: true)
                 
             }
             if checkResault == true {
-                presenter.registerTap(userName: userName, email: email, password: password)
+                presenter.loginTap(email: email, password: password)
             }
             
         }
-        
     }
     
     //MARK: - Functions
@@ -99,20 +96,18 @@ class RegisterEmailViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
+
 }
 
-//MARK: - Extension
+//MARK: - Extensions
 
-extension RegisterEmailViewController: RegisterEmailOutputProtocol {
-    
+extension LoginEmailViewController: LoginEmailOutputProtocol {
     func success() {
-        
         presenter.toMainScreenIfSuccess()
     }
     
     func failure(error: Error) {
-        present(alert.showAlert(title: "Ошибка регистрации", message: error.localizedDescription), animated: true)
+        present(alert.showAlert(title: "Ошибка", message: error.localizedDescription), animated: true)
     }
     
     

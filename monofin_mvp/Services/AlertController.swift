@@ -10,11 +10,11 @@ import UIKit
 
 
 
-protocol AlertOutputProtocol: class {
+protocol AlertInputProtocol: class {
     func showAlert(title: String, message: String) -> UIAlertController
 }
 
-class AlertController: AlertOutputProtocol {
+class AlertController: AlertInputProtocol {
     
     func showAlert(title: String, message: String) -> UIAlertController {
 //        DispatchQueue.main.async(execute: {

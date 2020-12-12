@@ -8,33 +8,30 @@
 import Foundation
 import UIKit
 
-protocol RegisterEmailInputProtocol: class {
+protocol RegisterEmailOutputProtocol: class {
     func success()
     func failure(error: Error)
 }
 
-protocol RegisterEmailOutputProtocol: class {
-    init(view: RegisterEmailInputProtocol, router: RouterOutputProtocol, alert: AlertOutputProtocol, firebaseAuthManager: FireBaseInputProtocol)
+protocol RegisterEmailInputProtocol: class {
+    init(view: RegisterEmailOutputProtocol, router: RouterInputProtocol, alert: AlertInputProtocol, firebaseAuthManager: FireBaseInputProtocol)
     func registerTap(userName: String, email: String, password: String)
     func inputCheck(userName: String, email: String, password: String, passwordConform: String) throws -> Bool
     func toMainScreenIfSuccess()
     var userInfo: UserInfo? { get set }
 }
 
-class RegisterEmailPresenter: RegisterEmailOutputProtocol {
+class RegisterEmailPresenter: RegisterEmailInputProtocol {
     
-    weak var view: RegisterEmailInputProtocol?
-    var router: RouterOutputProtocol?
-    var alert: AlertOutputProtocol?
-    
-    // ||||||| next string ||||||||| Check it |||||||||||||
-    
+    weak var view: RegisterEmailOutputProtocol?
+    var router: RouterInputProtocol?
+    var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
     
     var userInfo: UserInfo?
     
     
-    required init(view: RegisterEmailInputProtocol, router: RouterOutputProtocol, alert: AlertOutputProtocol, firebaseAuthManager: FireBaseInputProtocol) {
+    required init(view: RegisterEmailOutputProtocol, router: RouterInputProtocol, alert: AlertInputProtocol, firebaseAuthManager: FireBaseInputProtocol) {
         self.view = view
         self.router = router
         self.alert = alert

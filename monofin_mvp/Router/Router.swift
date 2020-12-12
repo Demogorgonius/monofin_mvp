@@ -8,19 +8,22 @@
 import Foundation
 import UIKit
 
-protocol RouterInputProtocol: class {
+protocol RouterOutputProtocol: class {
     var navigationVC: UINavigationController? { get set }
     var assemblyBuilder: AssemblyBuilderProtocol? { get set }
 }
 
-protocol RouterOutputProtocol: RouterInputProtocol {
+protocol RouterInputProtocol: RouterOutputProtocol {
     func initialViewController()
     func showAuthSelectViewController()
     func loginViewController()
     func showRegisterEmailViewController()
+    func showLoginSelectViewController()
+    func showLoginEmailViewController()
+    func showSettingsViewController()
 }
 
-class Router: RouterOutputProtocol {
+class Router: RouterInputProtocol {
     
     var navigationVC: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
@@ -55,6 +58,20 @@ class Router: RouterOutputProtocol {
         if let navigationVC = navigationVC {
             guard let registerEmailVC = assemblyBuilder?.createRegisterEmailModule(router: self) else { return }
             navigationVC.pushViewController(registerEmailVC, animated: true)
+        }
+    }
+    
+    func showLoginSelectViewController() {
+        if let navigationVC = navigationVC {
+            guard let loginSelectVC = assemblyBuilder?.createLoginSelectModule(router: self) else { return }
+            navigationVC.pushViewController(loginSelectVC, animated: true)
+        }
+    }
+    
+    func showLoginEmailViewController() {
+        if let navigationVC = navigationVC {
+            guard let loginEmailVC = assemblyBuilder?.createLoginEmailModule(router: self) else { return }
+            navigationVC.pushViewController(loginEmailVC, animated: true)
         }
     }
     

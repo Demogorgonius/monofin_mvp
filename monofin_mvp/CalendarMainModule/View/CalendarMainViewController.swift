@@ -15,6 +15,7 @@ class CalendarMainViewController: UIViewController {
     @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var backImageView: UIImageView!
     
     //MARK: - Variables
     var calendar = Calendar.current
@@ -26,12 +27,20 @@ class CalendarMainViewController: UIViewController {
     override func viewDidLoad() {
 
         setupCalendarView()
-    //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SplashScreenX")!)
         
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = backImageView.bounds
+        view.addSubview(blurredEffectView)
+        let subViewCount = view.subviews.count
+        view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(addTapped))
-        self.view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     @objc func addTapped() {

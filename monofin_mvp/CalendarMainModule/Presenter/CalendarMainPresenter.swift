@@ -13,13 +13,13 @@ protocol CalendarOutProtocol: class {
 }
 
 protocol CalendarInProtocol: class {
-    init(router: RouterOutputProtocol)
+    init(router: RouterInputProtocol)
     func addTapped()
 }
 
 class CalendarMainPresenter: CalendarInProtocol {
-    var router: RouterOutputProtocol?
-    required init(router: RouterOutputProtocol) {
+    var router: RouterInputProtocol?
+    required init(router: RouterInputProtocol) {
         self.router = router
     }
     func addTapped() {
