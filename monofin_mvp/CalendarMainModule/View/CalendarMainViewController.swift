@@ -22,6 +22,8 @@ class CalendarMainViewController: UIViewController {
     var numberOfRows = 6
     let formatter = DateFormatter()
     var presenter: CalendarInProtocol!
+    var assemnblyBuilder: AssemblyBuilderProtocol!
+    var router: RouterInputProtocol!
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -39,9 +41,7 @@ class CalendarMainViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isTranslucent = true
-    }
+
     
     @objc func addTapped() {
         presenter.addTapped()

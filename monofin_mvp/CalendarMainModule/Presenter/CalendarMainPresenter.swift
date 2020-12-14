@@ -4,7 +4,7 @@
 //
 //  Created by Sergey on 21.11.2020.
 //
-
+import UIKit
 import Foundation
 
 protocol CalendarOutProtocol: class {
@@ -18,8 +18,10 @@ protocol CalendarInProtocol: class {
 }
 
 class CalendarMainPresenter: CalendarInProtocol {
+    var navigationVC: UINavigationController?
     var router: RouterInputProtocol?
     required init(router: RouterInputProtocol) {
+        
         self.router = router
     }
     func addTapped() {

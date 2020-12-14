@@ -10,6 +10,7 @@ import UIKit
 
 protocol RouterOutputProtocol: class {
     var navigationVC: UINavigationController? { get set }
+    var tabbarVC: UITabBarController? { get set }
     var assemblyBuilder: AssemblyBuilderProtocol? { get set }
 }
 
@@ -26,18 +27,29 @@ protocol RouterInputProtocol: RouterOutputProtocol {
 class Router: RouterInputProtocol {
     
     var navigationVC: UINavigationController?
+    var tabbarVC: UITabBarController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     
-    init(navigationVC: UINavigationController, assemblyBuilder: AssemblyBuilderProtocol){
+    init(navigationVC: UINavigationController, tabbarVC: UITabBarController, assemblyBuilder: AssemblyBuilderProtocol){
         self.navigationVC = navigationVC
+        self.tabbarVC = tabbarVC
         self.assemblyBuilder = assemblyBuilder
     }
     
     func initialViewController() {
-        if let navigationVC = navigationVC {
-            guard let calendarMainModule = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
-            navigationVC.viewControllers = [calendarMainModule]
-        }
+        
+                if let navigationVC = navigationVC {
+                    
+                    if let tabbarVC = tabbarVC {
+                        guard let mainVC = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
+                        guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return }
+                        navigationVC.viewControllers = [mainVC]
+                        let controllers = [mainVC, settingsVC]
+                        tabbarVC.viewControllers = controllers
+                        
+                    }
+                }
+        
     }
     
     func loginViewController() {
@@ -72,6 +84,13 @@ class Router: RouterInputProtocol {
         if let navigationVC = navigationVC {
             guard let loginEmailVC = assemblyBuilder?.createLoginEmailModule(router: self) else { return }
             navigationVC.pushViewController(loginEmailVC, animated: true)
+        }
+    }
+    
+    func showSettingsViewController() {
+        if let navigationVC = navigationVC {
+            guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return}
+            navigationVC.pushViewController(settingsVC, animated: true)
         }
     }
     

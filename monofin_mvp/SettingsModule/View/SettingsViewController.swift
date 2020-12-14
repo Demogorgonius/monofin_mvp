@@ -7,18 +7,18 @@
 
 import UIKit
 
-//MARK: - @IBOutlet
-
-
-
-//MARK: - Variables
-
-var presenter: SettingsPresenterInputProtocol!
-var alert: AlertInputProtocol!
-
-//MARK: - ViewDidLoad
 
 class SettingsViewController: UIViewController {
+    //MARK: - @IBOutlet
+    
+    
+    
+    //MARK: - Variables
+    
+    var presenter: SettingsPresenterInputProtocol!
+    var alert: AlertInputProtocol!
+    
+    //MARK: - ViewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
