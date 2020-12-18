@@ -23,23 +23,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
+        let tabbarVC = UITabBarController()
+        let navigationVC = UINavigationController()
+       
+        let assemblyBuilder = AssemblyModuleBuilder()
+        let router = Router(navigationVC: navigationVC, tabbarVC: tabbarVC, assemblyBuilder: assemblyBuilder)
 
         if UserDefaults.standard.value(forKey: "uid") != nil {
-            
-            let tabbarVC = UITabBarController()
-            let navigationVC = UINavigationController()
-            let assemblyBuilder = AssemblyModuleBuilder()
-            let router = Router(navigationVC: navigationVC, tabbarVC: tabbarVC, assemblyBuilder: assemblyBuilder)
-            router.initialViewController()
-            window?.rootViewController = tabbarVC
-            window?.makeKeyAndVisible()
 
+            router.initialViewController()
+            window?.rootViewController = navigationVC
+            window?.makeKeyAndVisible()
+            
         } else {
             
-            let tabbarVC = UITabBarController()
-            let navigationVC = UINavigationController()
-            let assemblyBuilder = AssemblyModuleBuilder()
-            let router = Router(navigationVC: navigationVC, tabbarVC: tabbarVC, assemblyBuilder: assemblyBuilder)
             router.loginViewController()
             window?.rootViewController = navigationVC
             window?.makeKeyAndVisible()

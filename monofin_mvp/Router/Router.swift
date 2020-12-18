@@ -38,17 +38,13 @@ class Router: RouterInputProtocol {
     
     func initialViewController() {
         
-                if let navigationVC = navigationVC {
-                    
-                    if let tabbarVC = tabbarVC {
-                        guard let mainVC = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
-                        guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return }
-                        navigationVC.viewControllers = [mainVC]
-                        let controllers = [mainVC, settingsVC]
-                        tabbarVC.viewControllers = controllers
-                        
-                    }
-                }
+        if let navigationVC = navigationVC {
+            let tabbarVC = UITabBarController()
+            guard let calendarVC = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
+            guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return }
+            tabbarVC.viewControllers = [calendarVC, settingsVC]
+            navigationVC.viewControllers = [tabbarVC]
+        }
         
     }
     

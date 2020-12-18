@@ -22,11 +22,12 @@ class CalendarMainViewController: UIViewController {
     var numberOfRows = 6
     let formatter = DateFormatter()
     var presenter: CalendarInProtocol!
-    var assemnblyBuilder: AssemblyBuilderProtocol!
-    var router: RouterInputProtocol!
+//    var assemnblyBuilder: AssemblyBuilderProtocol!
+//    var router: RouterInputProtocol!
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
+        super.viewDidLoad()
 
         setupCalendarView()
         
@@ -36,12 +37,21 @@ class CalendarMainViewController: UIViewController {
         view.addSubview(blurredEffectView)
         let subViewCount = view.subviews.count
         view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(addTapped))
-        super.viewDidLoad()
+        
+        
         
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        
+        let addButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(addTapped))
+        navigationController?.viewControllers[0].navigationItem.rightBarButtonItem = addButton
+        
+        
+        
+    }
     
     @objc func addTapped() {
         presenter.addTapped()
@@ -157,6 +167,7 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        addTapped()
         handleCellConfiguration(cell: cell, cellState: cellState)
     }
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
@@ -167,6 +178,8 @@ extension CalendarMainViewController: JTACMonthViewDataSource, JTACMonthViewDele
     }
     
 }
+
+
 extension CalendarMainViewController: CalendarOutProtocol {
     func success() {
         

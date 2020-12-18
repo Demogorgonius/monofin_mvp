@@ -18,13 +18,16 @@ protocol CalendarInProtocol: class {
 }
 
 class CalendarMainPresenter: CalendarInProtocol {
-    var navigationVC: UINavigationController?
+    
     var router: RouterInputProtocol?
+    
     required init(router: RouterInputProtocol) {
         
         self.router = router
     }
+    
     func addTapped() {
         router?.showAuthSelectViewController()
     }
+    
 }
