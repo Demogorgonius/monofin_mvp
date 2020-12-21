@@ -11,7 +11,10 @@ import UIKit
 class SettingsViewController: UIViewController {
     //MARK: - @IBOutlet
     
-    
+    @IBOutlet weak var userLogoutButton: UIButton!
+    @IBOutlet weak var userDeleteButton: UIButton!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var backImageView: UIImageView!
     
     //MARK: - Variables
     
@@ -22,12 +25,29 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = backImageView.bounds
+        view.addSubview(blurredEffectView)
+        let subViewCount = view.subviews.count
+        view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
+        
+        userLogoutButton.layer.cornerRadius = userLogoutButton.bounds.height/2
+        userDeleteButton.layer.cornerRadius = userDeleteButton.bounds.height/2
+        changePasswordButton.layer.cornerRadius = changePasswordButton.bounds.height/2
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
 
 //MARK: - @IBActions
-    
+    @IBAction func logoutTapped(_ sender: Any) {
+        present(presenter.logoutTap(), animated: true)
+    }
     
 //MARK: - Functions
     

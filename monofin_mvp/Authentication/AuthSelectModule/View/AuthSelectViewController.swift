@@ -35,9 +35,10 @@ class AuthSelectViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.alpha = 0.5
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Вернуться", style: .plain, target: nil, action: nil)
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.alpha = 0.5
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Вернуться", style: .plain, target: nil, action: nil)
     }
 
 

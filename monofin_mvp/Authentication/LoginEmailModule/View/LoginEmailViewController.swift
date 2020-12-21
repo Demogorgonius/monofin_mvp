@@ -55,6 +55,13 @@ class LoginEmailViewController: UIViewController {
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Вернуться", style: .plain, target: nil, action: nil)
+        
+    }
+    
     //MARK: - @IBActions
     
     @IBAction func loginButtonTap(_ sender: Any) {

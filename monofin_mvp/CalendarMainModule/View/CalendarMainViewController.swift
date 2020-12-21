@@ -31,7 +31,7 @@ class CalendarMainViewController: UIViewController {
 
         setupCalendarView()
         
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         blurredEffectView.frame = backImageView.bounds
         view.addSubview(blurredEffectView)
@@ -43,12 +43,14 @@ class CalendarMainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
         
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)]
         let addButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(addTapped))
         navigationController?.viewControllers[0].navigationItem.rightBarButtonItem = addButton
-        
+        navigationController?.viewControllers[0].navigationItem.title =  "Главная"
         
         
     }

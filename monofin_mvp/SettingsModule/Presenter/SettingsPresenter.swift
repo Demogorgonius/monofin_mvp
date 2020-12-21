@@ -17,7 +17,7 @@ protocol SettingsPresenterOutputProtocol: class {
 
 protocol SettingsPresenterInputProtocol: class {
     init(view: SettingsPresenterOutputProtocol, router: RouterInputProtocol, alert: AlertInputProtocol, firebaseAuthManager: FireBaseInputProtocol)
-    func logoutTap()
+    func logoutTap() -> UIAlertController
     
 }
 
@@ -37,7 +37,18 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
         
     }
     
-    func logoutTap() {
+    func logoutTap() -> UIAlertController {
+        return (alert?.showAlertQuestion(title: "Внимание!", message: "Вы действительно хотите выйти?", completionBlock: { resault in
+            
+            switch resault {
+            case true:
+                print("user select OK !!!")
+                UserDefaults.standard.set(nil, forKey: "uid")
+                self.router?.loginViewController()
+            case false:
+                print("user select cancel  !!!")
+            }
+        }))!
         
     }
     

@@ -39,11 +39,15 @@ class Router: RouterInputProtocol {
     func initialViewController() {
         
         if let navigationVC = navigationVC {
-            let tabbarVC = UITabBarController()
-            guard let calendarVC = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
-            guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return }
-            tabbarVC.viewControllers = [calendarVC, settingsVC]
-            navigationVC.viewControllers = [tabbarVC]
+            if let tabbarVC = tabbarVC {
+                guard let calendarVC = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
+                guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return }
+                calendarVC.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(named: "home_i"), selectedImage: UIImage(named: "home_a"))
+                settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(named: "set_i"), selectedImage: UIImage(named: "set_a"))
+                tabbarVC.viewControllers = [calendarVC, settingsVC]
+                navigationVC.viewControllers = [tabbarVC]
+            }
+            
         }
         
     }

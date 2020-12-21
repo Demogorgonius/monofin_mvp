@@ -485,9 +485,9 @@
 		A5E42AF1257F79770010782B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				A5DF5CA6258510610061EB09 /* LoginEmailModule */,
-				A5DF5CA2258510190061EB09 /* LoginSelectModule */,
 				A5E42AF2257F79CA0010782B /* LoginModule */,
+				A5DF5CA2258510190061EB09 /* LoginSelectModule */,
+				A5DF5CA6258510610061EB09 /* LoginEmailModule */,
 				A5BCD8772576A78900758EC0 /* AuthSelectModule */,
 				A5BCD8782576A7C000758EC0 /* RegisterEmailModule */,
 			);

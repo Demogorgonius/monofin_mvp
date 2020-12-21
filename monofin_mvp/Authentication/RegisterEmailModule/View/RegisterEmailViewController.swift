@@ -53,6 +53,13 @@ class RegisterEmailViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.alpha = 0.5
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Вернуться", style: .plain, target: nil, action: nil)
+    }
+    
     
     
     //MARK: - @IBAction
