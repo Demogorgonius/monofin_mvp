@@ -10,7 +10,7 @@ import UIKit
 
 enum TypeOfAction {
     case checkCurentUser
-    case chengePassword
+    case changePassword
 }
 
 protocol SettingsPresenterOutputProtocol: class {
@@ -30,6 +30,8 @@ protocol SettingsPresenterInputProtocol: class {
     func logoutTap() -> UIAlertController
     func deleteTap()
     func checkCurentUser(email: String, passowrd: String)
+    func changePassword(newPassword: String)
+    func passwordMatch(passwordOne: String, passwordTwo: String)
     
 }
 
@@ -105,5 +107,28 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
         })
     }
     
+    func changePassword(newPassword: String) {
+        firebaseAuthManager?.changePassword(newPassword: newPassword, completionBlock: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                self.view?.failure(error: error)
+            case .success(_):
+                self.view?.success(type: .changePassword)
+            }
+            
+        })
+    }
+
+    func passwordMatch(passwordOne: String, passwordTwo: String) {
+        
+        
+        if passwordOne == passwordTwo {
+            changePassword(newPassword: passwordOne)
+        } else {
+            view?.failure(error: ValidateInputError.passwordNotMatch)
+        }
+        
+    }
     
 }

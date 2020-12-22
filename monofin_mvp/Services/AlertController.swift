@@ -76,13 +76,13 @@ class AlertController: AlertInputProtocol {
         
         alert.addTextField { (textField: UITextField) in
             textField.textContentType = .password
-            textField.placeholder = "Пароль"
+            textField.placeholder = "Новый пароль"
             textField.isSecureTextEntry = true
         }
         alert.addTextField { (textField: UITextField) in
             textField.textContentType = .newPassword
             textField.isSecureTextEntry = true
-            textField.placeholder = "Новый пароль"
+            textField.placeholder = "Пароль ещё раз"
         }
         
         let okAction = UIAlertAction(title: "Сменить", style: .default) { action in

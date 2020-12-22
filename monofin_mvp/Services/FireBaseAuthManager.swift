@@ -14,6 +14,7 @@ protocol FireBaseInputProtocol {
     func signIn(email: String, password: String, completionBlock: @escaping (Result<Bool, Error>) -> Void)
     func deleteUser(completionBlock: @escaping (Result<Bool, Error>) -> Void)
     func checkCurenUser(email: String, password: String, uid: String, completionBlock: @escaping(Result<Bool,Error>) -> Void)
+    func changePassword(newPassword: String, completionBlock: @escaping(Result<Bool,Error>) -> Void)
 }
 
 class FireBaseAuthManager: FireBaseInputProtocol {
@@ -84,6 +85,17 @@ class FireBaseAuthManager: FireBaseInputProtocol {
             }
             
         }
+    }
+    
+    func changePassword(newPassword: String, completionBlock: @escaping (Result<Bool, Error>) -> Void) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { (error) in
+            if let error = error {
+                completionBlock(.failure(error))
+            } else {
+                completionBlock(.success(true))
+            }
+            
+        })
     }
     
 }

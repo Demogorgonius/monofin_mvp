@@ -24,7 +24,7 @@ class ValidatiorClass: ValidatorInputProtocol {
                 throw ValidateInputError.wrongSymbolsEmail
             }
         case .password:
-            let passwordRegEx = "[A-Z0-9a-z._%+-]{2,64}"
+            let passwordRegEx = "[A-Z0-9a-z._%+-]{6,64}"
             let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
             let passwordResult: Bool = passwordPred.evaluate(with: string)
             if !passwordResult {

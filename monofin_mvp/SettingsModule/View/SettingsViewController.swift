@@ -82,6 +82,37 @@ class SettingsViewController: UIViewController {
         
     }
     
+    @IBAction func passwordChangeTapped(_ sender: Any) {
+        
+        var validationResult: Bool = false
+        present( alert.showAlertPassValidation(title: "Внимание", message: "Введите новый пароль:", completionBlock: { (result, passwordOne, passwordTwo) in
+            switch result {
+            case true:
+                if let password = passwordOne {
+                    do {
+                        validationResult = try self.validator.checkString(stringType: .password, string: password)
+                    } catch {
+                        self.present(self.alert.showAlert(title: "Внимание", message: error.localizedDescription), animated: true)
+                    }
+                }
+                if let password = passwordTwo {
+                    do {
+                        validationResult = try self.validator.checkString(stringType: .password, string: password)
+                    } catch {
+                        self.present(self.alert.showAlert(title: "Внимание!", message: error.localizedDescription), animated: true)
+                    }
+                }
+                if validationResult == true {
+                    if let password = passwordOne {
+                        if let passwordConform = passwordTwo { self.presenter.passwordMatch(passwordOne: password, passwordTwo: passwordConform) }
+                    }
+                }
+            case false:
+                validationResult = false
+            }
+        }) , animated: true)
+    }
+    
     //MARK: - Functions
     
     
@@ -94,8 +125,8 @@ extension SettingsViewController: SettingsPresenterOutputProtocol {
         switch type {
         case .checkCurentUser:
             presenter.deleteTap()
-        case .chengePassword:
-            print("")
+        case .changePassword:
+            present(alert.showAlert(title: "Внимание!", message: "Пароль был изменён!"), animated: true)
         }
     }
     func failure(error: Error) {
