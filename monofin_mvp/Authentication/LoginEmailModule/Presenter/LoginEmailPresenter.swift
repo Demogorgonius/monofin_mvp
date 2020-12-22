@@ -68,7 +68,7 @@ class LoginEmailPresenter: LoginEmailInputProtocol {
         
         firebaseAuthManager?.signIn(email: email, password: password, completionBlock: { [weak self] result in
             guard let self = self else { return }
-            switch result{
+            switch result {
             case .success(_):
                 self.view?.success()
             case .failure(let error):

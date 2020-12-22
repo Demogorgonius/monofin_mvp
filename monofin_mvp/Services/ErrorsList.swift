@@ -14,6 +14,7 @@ enum ValidateInputError: Error {
     case passwordIncorrect
     case passwordNotMatch
     case userNameError
+    case authError
 }
 
 extension ValidateInputError: LocalizedError {
@@ -29,6 +30,8 @@ extension ValidateInputError: LocalizedError {
             return NSLocalizedString("Пароли не совпадают!", comment: "Description of not matching passwords")
         case .userNameError:
             return NSLocalizedString("Ошибка в имени пользователя!", comment: "Description of invalid user name")
+        case .authError:
+            return NSLocalizedString("Неправильное имя пользователя или пароль!", comment: "Authentification error")
         }
     }
 }

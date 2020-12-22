@@ -89,7 +89,9 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         let firebaseAuthManager = FireBaseAuthManager()
         let view = SettingsViewController()
         let alert = AlertController()
-        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager)
+        let validator = ValidatiorClass()
+        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager, validator: validator)
+        view.validator = validator
         view.presenter = presenter
         view.alert = alert
         return view

@@ -20,9 +20,10 @@ class SettingsViewController: UIViewController {
     
     var presenter: SettingsPresenterInputProtocol!
     var alert: AlertInputProtocol!
+    var validator: ValidatorInputProtocol!
     
     //MARK: - ViewDidLoad
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,27 +44,62 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
-
-//MARK: - @IBActions
+    
+    //MARK: - @IBActions
+    
     @IBAction func logoutTapped(_ sender: Any) {
         present(presenter.logoutTap(), animated: true)
     }
     
-//MARK: - Functions
+    @IBAction func deleteTapped(_ sender: Any) {
+        var validateResult: Bool = false
+        present(alert.showAlertRegQuestion(title: "Внимание", message: "Подтвердите удаление:", completionBlock: { (result, email, password) in
+            
+            switch result {
+            case true:
+                if let emailToVal = email {
+                    do {
+                        validateResult = try self.validator.checkString(stringType: .email, string: emailToVal)
+                    } catch {
+                        self.present(self.alert.showAlert(title: "Внимание", message: error.localizedDescription), animated: true)
+                    }
+                }
+                if let passToVal = password {
+                    do {
+                        validateResult = try self.validator.checkString(stringType: .password, string: passToVal)
+                    } catch {
+                        self.present(self.alert.showAlert(title: "Внимание!", message: error.localizedDescription), animated: true)
+                    }
+                }
+                if validateResult == true {
+                    self.presenter.checkCurentUser(email: email!, passowrd: password!)
+                }
+            case false:
+                validateResult = false
+            }
+            
+        }), animated: true)
+        
+    }
     
-
+    //MARK: - Functions
+    
+    
 }
 
 //MARK: - Extension
 
 extension SettingsViewController: SettingsPresenterOutputProtocol {
-    func success() {
-        
+    func success(type: TypeOfAction) {
+        switch type {
+        case .checkCurentUser:
+            presenter.deleteTap()
+        case .chengePassword:
+            print("")
+        }
     }
-    
     func failure(error: Error) {
-        
+        present(alert.showAlert(title: "Внимание", message: error.localizedDescription), animated: true)
     }
-    
-    
+  
 }
