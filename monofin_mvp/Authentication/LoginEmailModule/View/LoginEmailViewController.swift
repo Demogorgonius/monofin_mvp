@@ -8,18 +8,20 @@
 import UIKit
 
 class LoginEmailViewController: UIViewController {
-
+    
     //MARK: - @IBOutlet
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var forgottenPasswordButton: UIButton!
     @IBOutlet weak var backImageView: UIImageView!
     
     //MARK: - Variables
     
     var presenter: LoginEmailInputProtocol!
     var alert: AlertInputProtocol!
+    var validator: ValidatorInputProtocol!
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -51,8 +53,8 @@ class LoginEmailViewController: UIViewController {
         view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
         
         view.addGestureRecognizer(tap)
-
-       
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +83,33 @@ class LoginEmailViewController: UIViewController {
             
         }
     }
+    @IBAction func forgottenPasswordTapped(_ sender: Any) {
+        var validateResult: Bool = false
+        present(alert.showAlertEmailInput(title: "Внимание", message: "Введите e-mail для отправки ссылки на восстановление пароля:") { (result, email) in
+            switch result {
+            case true:
+                if let email = email {
+                    do {
+                        
+                        validateResult = try self.validator.checkString(stringType: .email, string: email)
+                        
+                    } catch {
+                        
+                        self.present(self.alert.showAlert(title: "Ошибка!", message: error.localizedDescription), animated: true)
+                        
+                    }
+                }
+                
+                if validateResult == true {
+                    
+                    self.presenter.rememberPassword(email: email!)
+                    
+                }
+            case false:
+                validateResult = false
+            }
+        }, animated: true)
+    }
     
     //MARK: - Functions
     
@@ -103,14 +132,19 @@ class LoginEmailViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
+    
 }
 
 //MARK: - Extensions
 
 extension LoginEmailViewController: LoginEmailOutputProtocol {
-    func success() {
-        presenter.toMainScreenIfSuccess()
+    func success(type: SuccessSelector ) {
+        switch type {
+        case .loginOk:
+            presenter.toMainScreenIfSuccess()
+        case .forgottenPassword:
+            present(alert.showAlert(title: "Внимание!", message: "Вам было отправленно письмо с ссылкой для восстановления пароля."), animated: true)
+        }
     }
     
     func failure(error: Error) {

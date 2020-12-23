@@ -11,10 +11,13 @@ import UIKit
 
 
 protocol AlertInputProtocol: class {
+    
     func showAlert(title: String, message: String) -> UIAlertController
     func showAlertQuestion(title: String, message: String, completionBlock: @escaping(Bool) -> Void) -> UIAlertController
     func showAlertRegQuestion(title: String, message: String, completionBlock: @escaping(_ action: Bool, _ emailInput: String?, _ pasInput: String?) -> Void) -> UIAlertController
     func showAlertPassValidation(title: String, message: String, completionBlock: @escaping(_ action: Bool, _ pass: String?, _ newPass: String?) -> Void) -> UIAlertController
+    func showAlertEmailInput(title: String, message: String, completionBlock: @escaping(_ action: Bool, _ email: String?) -> Void) -> UIAlertController
+    
 }
 
 class AlertController: AlertInputProtocol {
@@ -92,6 +95,31 @@ class AlertController: AlertInputProtocol {
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { action in
             completionBlock(false, "", "")
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        return alert
+        
+    }
+    
+    func showAlertEmailInput(title: String, message: String, completionBlock: @escaping (Bool, String?) -> Void) -> UIAlertController {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addTextField { (textField: UITextField) in
+            textField.textContentType = .emailAddress
+            textField.placeholder = "E-mail"
+        }
+        
+        let okAction = UIAlertAction(title: "Отправить", style: .default) { action in
+            let email = alert.textFields![0].text
+            completionBlock(true, email)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { action in
+            completionBlock(false, "")
         }
         
         alert.addAction(okAction)

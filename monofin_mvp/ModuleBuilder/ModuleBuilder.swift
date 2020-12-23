@@ -76,9 +76,11 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     func createLoginEmailModule(router: RouterInputProtocol) -> UIViewController {
         
         let firebaseAuthManager = FireBaseAuthManager()
+        let validator = ValidatiorClass()
         let view = LoginEmailViewController()
         let alert = AlertController()
-        let presenter = LoginEmailPresenter(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager)
+        let presenter = LoginEmailPresenter(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager, validator: validator)
+        view.validator = validator
         view.presenter = presenter
         view.alert = alert
         return view

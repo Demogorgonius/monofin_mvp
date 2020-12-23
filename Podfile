@@ -1,21 +1,29 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '14.2'
+
+post_install do |installer|
+ installer.pods_project.targets.each do |target|
+  target.build_configurations.each do |config|
+   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+  end
+ end
+end
 
 target 'monofin_mvp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for monofin_mvp
-	pod 'JTAppleCalendar'
-	pod 'Firebase/Analytics'
-	pod 'FlagPhoneNumber'
-	pod 'Firebase'
-	pod 'Firebase/Auth'
+        pod 'JTAppleCalendar'
+        pod 'Firebase/Analytics'
+        pod 'FlagPhoneNumber'
+        pod 'Firebase'
+        pod 'Firebase/Auth'
   target 'monofin_mvpTests' do
     inherit! :search_paths
     # Pods for testing
-	pod 'JTAppleCalendar'
-	pod 'Firebase/Analytics'
+        pod 'JTAppleCalendar'
+        pod 'Firebase/Analytics'
         pod 'FlagPhoneNumber'
         pod 'Firebase'
         pod 'Firebase/Auth'
@@ -23,7 +31,8 @@ target 'monofin_mvp' do
 
   target 'monofin_mvpUITests' do
     # Pods for testing
-	pod 'JTAppleCalendar'
+        pod 'JTAppleCalendar'
   end
 
 end
+

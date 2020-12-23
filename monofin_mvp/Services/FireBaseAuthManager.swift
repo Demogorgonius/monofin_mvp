@@ -14,7 +14,8 @@ protocol FireBaseInputProtocol {
     func signIn(email: String, password: String, completionBlock: @escaping (Result<Bool, Error>) -> Void)
     func deleteUser(completionBlock: @escaping (Result<Bool, Error>) -> Void)
     func checkCurenUser(email: String, password: String, uid: String, completionBlock: @escaping(Result<Bool,Error>) -> Void)
-    func changePassword(newPassword: String, completionBlock: @escaping(Result<Bool,Error>) -> Void)
+    func changePassword(newPassword: String, completionBlock: @escaping (Result<Bool,Error>) -> Void)
+    func rememberPassword(email: String, complitionBlock: @escaping (Result<Bool,Error>) -> Void)
 }
 
 class FireBaseAuthManager: FireBaseInputProtocol {
@@ -96,6 +97,16 @@ class FireBaseAuthManager: FireBaseInputProtocol {
             }
             
         })
+    }
+    
+    func rememberPassword(email: String, complitionBlock: @escaping (Result<Bool, Error>) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if let error = error {
+                complitionBlock(.failure(error))
+            } else {
+                complitionBlock(.success(true))
+            }
+        }
     }
     
 }

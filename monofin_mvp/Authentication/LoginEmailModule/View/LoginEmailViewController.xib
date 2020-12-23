@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="backImageView" destination="bw2-UC-9jv" id="eBs-Yy-YtD"/>
                 <outlet property="emailTextField" destination="XE1-pZ-tuD" id="UFZ-Zk-H5h"/>
+                <outlet property="forgottenPasswordButton" destination="b2E-Y0-aaC" id="Jq7-Tg-hFH"/>
                 <outlet property="loginButton" destination="MdA-wd-8ry" id="jMR-lh-yL1"/>
                 <outlet property="passwordTextField" destination="6jT-Nu-YKB" id="LWx-js-ez3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,7 +28,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-vX-auK">
-                    <rect key="frame" x="16" y="318.5" width="382" height="269"/>
+                    <rect key="frame" x="16" y="291" width="382" height="324"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7G-gb-MCi">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
@@ -60,6 +61,13 @@
                             </state>
                             <connections>
                                 <action selector="loginButtonTap:" destination="-1" eventType="touchUpInside" id="VxK-ir-mPv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2E-Y0-aaC">
+                            <rect key="frame" x="0.0" y="294" width="382" height="30"/>
+                            <state key="normal" title="Забыли пароль?"/>
+                            <connections>
+                                <action selector="forgottenPasswordTapped:" destination="-1" eventType="touchUpInside" id="IAn-pW-xqX"/>
                             </connections>
                         </button>
                     </subviews>
