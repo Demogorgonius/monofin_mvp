@@ -18,8 +18,14 @@ class RegisterEmailViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    //MARK: - Variables
+    
     var presenter: RegisterEmailInputProtocol!
     var alert: AlertInputProtocol!
+    var validator: ValidatorInputProtocol!
+    
+    //MARK: - View did load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,22 +71,13 @@ class RegisterEmailViewController: UIViewController {
     //MARK: - @IBAction
     
     @IBAction func registerButtonTapped(_ sender: Any) {
-        var checkResault: Bool?
+        var checkResault: Bool = false
         if let userName = userNameTextField.text,
            let email = emailTextField.text,
            let password = passwordTextField.text,
            let pasConform = passwordConformTextField.text {
-            do {
-                checkResault = try presenter.inputCheck(userName: userName, email: email, password: password, passwordConform: pasConform)
-            } catch {
-                
-                present(alert.showAlert(title: "Ошибка", message: error.localizedDescription), animated: true)
-                
-            }
-            if checkResault == true {
-                presenter.registerTap(userName: userName, email: email, password: password)
-            }
-            
+            checkResault = presenter.inputCheck(userName: userName, email: email, password: password, passwordConform: pasConform)
+            checkResault ? presenter.registerTap(userName: userName, email: email, password: password) : nil
         }
         
     }

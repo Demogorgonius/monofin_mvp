@@ -71,11 +71,10 @@ class LoginEmailViewController: UIViewController {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
             do {
-                checkResault = try presenter.validateInputParam(email: email, password: password)
+                checkResault = try validator.checkString(stringType: .email, string: email)
+                checkResault = try validator.checkString(stringType: .password, string: password)
             } catch {
-                
                 present(alert.showAlert(title: "Ошибка", message: error.localizedDescription), animated: true)
-                
             }
             if checkResault == true {
                 presenter.loginTap(email: email, password: password)
@@ -83,6 +82,7 @@ class LoginEmailViewController: UIViewController {
             
         }
     }
+    
     @IBAction func forgottenPasswordTapped(_ sender: Any) {
         var validateResult: Bool = false
         present(alert.showAlertEmailInput(title: "Внимание", message: "Введите e-mail для отправки ссылки на восстановление пароля:") { (result, email) in
@@ -90,20 +90,13 @@ class LoginEmailViewController: UIViewController {
             case true:
                 if let email = email {
                     do {
-                        
                         validateResult = try self.validator.checkString(stringType: .email, string: email)
-                        
                     } catch {
-                        
                         self.present(self.alert.showAlert(title: "Ошибка!", message: error.localizedDescription), animated: true)
-                        
                     }
                 }
-                
                 if validateResult == true {
-                    
                     self.presenter.rememberPassword(email: email!)
-                    
                 }
             case false:
                 validateResult = false

@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
+
+
 protocol RegisterEmailOutputProtocol: class {
     func success()
     func failure(error: Error)
 }
 
 protocol RegisterEmailInputProtocol: class {
-    init(view: RegisterEmailOutputProtocol, router: RouterInputProtocol, alert: AlertInputProtocol, firebaseAuthManager: FireBaseInputProtocol)
+    init(view: RegisterEmailOutputProtocol, router: RouterInputProtocol, alert: AlertInputProtocol, firebaseAuthManager: FireBaseInputProtocol, validator: ValidatorInputProtocol)
     func registerTap(userName: String, email: String, password: String)
-    func inputCheck(userName: String, email: String, password: String, passwordConform: String) throws -> Bool
+    func inputCheck(userName: String, email: String, password: String, passwordConform: String) -> Bool
     func toMainScreenIfSuccess()
     var userInfo: UserInfo? { get set }
 }
@@ -27,15 +29,20 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
     var router: RouterInputProtocol?
     var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
-    
+    var validator: ValidatorInputProtocol?
     var userInfo: UserInfo?
     
     
-    required init(view: RegisterEmailOutputProtocol, router: RouterInputProtocol, alert: AlertInputProtocol, firebaseAuthManager: FireBaseInputProtocol) {
+    required init(view: RegisterEmailOutputProtocol,
+                  router: RouterInputProtocol,
+                  alert: AlertInputProtocol,
+                  firebaseAuthManager: FireBaseInputProtocol,
+                  validator: ValidatorInputProtocol) {
         self.view = view
         self.router = router
         self.alert = alert
         self.firebaseAuthManager = firebaseAuthManager
+        self.validator = validator
     }
     
     func toMainScreenIfSuccess() {
@@ -56,51 +63,26 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
         })
     }
     
-    func inputCheck(userName: String, email: String, password: String, passwordConform: String) throws -> Bool {
-        if userName == "" || email == "" || password == "" || passwordConform == "" {
-            throw ValidateInputError.emptyString
-        }
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        let emailResult: Bool = emailPred.evaluate(with: email)
-        if !emailResult {
-            throw ValidateInputError.wrongSymbolsEmail
-        }
-        
-        let userNameRegEx = "[A-Z0-9a-z._%+-]{2,64}"
-        let userNamePred = NSPredicate(format: "SELF MATCHES %@", userNameRegEx)
-        let userNameResult: Bool = userNamePred.evaluate(with: userName)
-        if !userNameResult {
-            throw ValidateInputError.userNameError
-        }
-        
-        let passwordRegEx = "[A-Z0-9a-z._%+-]{2,64}"
-        let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
-        let passwordResult: Bool = passwordPred.evaluate(with: password)
-        if !passwordResult {
-            throw ValidateInputError.passwordIncorrect
-        }
-        
-        let passwordConformRegEx = "[A-Z0-9a-z._%+-]{2,64}"
-        let passwordConformPred = NSPredicate(format: "SELF MATCHES %@", passwordConformRegEx)
-        let passwordConformResult: Bool = passwordConformPred.evaluate(with: passwordConform)
-        if !passwordConformResult {
-            throw ValidateInputError.passwordIncorrect
-        }
-        
-        if password != passwordConform {
-            throw ValidateInputError.passwordNotMatch
-        }
+    func inputCheck(userName: String, email: String, password: String, passwordConform: String) -> Bool {
         var result: Bool = false
-        
-        if emailResult && userNameResult && passwordResult && passwordConformResult {
-            if password == passwordConform {
-                result = true
-            }
+        if userName == "" || email == "" || password == "" || passwordConform == "" {
+            view?.failure(error: ValidateInputError.emptyString)
+        }
+        do {
+            result = ((try validator?.checkString(stringType: .email, string: email)) != nil)
+            result = ((try validator?.checkString(stringType: .userName, string: userName)) != nil)
+            result = ((try validator?.checkString(stringType: .password, string: password)) != nil)
+            result = ((try validator?.checkString(stringType: .password, string: passwordConform)) != nil)
+        } catch {
+            view?.failure(error: error)
+        }
+        if password == passwordConform {
+            result = true
         } else {
             result = false
+            view?.failure(error: ValidateInputError.passwordNotMatch)
         }
-        
+       
         return result
     }
     

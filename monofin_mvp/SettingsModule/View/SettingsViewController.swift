@@ -130,7 +130,7 @@ extension SettingsViewController: SettingsPresenterOutputProtocol {
         }
     }
     func failure(error: Error) {
-        present(alert.showAlert(title: "Внимание", message: error.localizedDescription), animated: true)
+        present(alert.showAlert(title: "Ошибка!", message: error.localizedDescription), animated: true)
     }
   
 }

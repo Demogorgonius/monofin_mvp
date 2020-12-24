@@ -37,7 +37,7 @@ protocol SettingsPresenterInputProtocol: class {
 
 class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
     
-    var view: SettingsPresenterOutputProtocol?
+    weak var view: SettingsPresenterOutputProtocol?
     var router: RouterInputProtocol?
     var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
