@@ -8,19 +8,22 @@
 import UIKit
 
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     //MARK: - @IBOutlet
     
     @IBOutlet weak var userLogoutButton: UIButton!
     @IBOutlet weak var userDeleteButton: UIButton!
     @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var changeAvatarButton: UIButton!
     
     //MARK: - Variables
     
     var presenter: SettingsPresenterInputProtocol!
     var alert: AlertInputProtocol!
     var validator: ValidatorInputProtocol!
+    var imagePicker = UIImagePickerController()
     
     //MARK: - ViewDidLoad
     
@@ -37,6 +40,7 @@ class SettingsViewController: UIViewController {
         userLogoutButton.layer.cornerRadius = userLogoutButton.bounds.height/2
         userDeleteButton.layer.cornerRadius = userDeleteButton.bounds.height/2
         changePasswordButton.layer.cornerRadius = changePasswordButton.bounds.height/2
+        changeAvatarButton.layer.cornerRadius = changeAvatarButton.bounds.height/2
         
     }
     
@@ -46,6 +50,25 @@ class SettingsViewController: UIViewController {
     }
     
     //MARK: - @IBActions
+    
+    @IBAction func avatarChangeTapped(_ sender: Any) {
+        
+        let alertImage = UIAlertController(title: "Источник фотографии", message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Камера", style: .default) { action in
+          self.chooseImagePickerAction(source: .camera)
+        }
+        let photoAction = UIAlertAction(title: "Фото", style: .default) { action in
+            self.chooseImagePickerAction(source: .photoLibrary)
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alertImage.addAction(cameraAction)
+        alertImage.addAction(photoAction)
+        alertImage.addAction(cancelAction)
+        
+        present(alertImage, animated: true)
+        
+    }
     
     @IBAction func logoutTapped(_ sender: Any) {
         present(presenter.logoutTap(), animated: true)
@@ -114,11 +137,29 @@ class SettingsViewController: UIViewController {
     }
     
     //MARK: - Functions
+    func chooseImagePickerAction(source: UIImagePickerController.SourceType) {
+
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+
+            self.present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        avatarImageView.image = info[.editedImage] as? UIImage
+        avatarImageView.contentMode = .scaleAspectFill
+        avatarImageView.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
+    }
     
     
 }
 
 //MARK: - Extension
+
 
 extension SettingsViewController: SettingsPresenterOutputProtocol {
     func success(type: TypeOfAction) {
@@ -134,3 +175,4 @@ extension SettingsViewController: SettingsPresenterOutputProtocol {
     }
   
 }
+

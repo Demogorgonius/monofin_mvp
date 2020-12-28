@@ -21,7 +21,7 @@ protocol AlertInputProtocol: class {
 }
 
 class AlertController: AlertInputProtocol {
-    
+    //MARK: - Alert message
     func showAlert(title: String, message: String) -> UIAlertController {
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -30,6 +30,8 @@ class AlertController: AlertInputProtocol {
             return alert
         
     }
+    
+    //MARK: - Request action alert
     
     func showAlertQuestion(title: String, message: String, completionBlock complitionBlock: @escaping(Bool) -> Void) -> UIAlertController {
         
@@ -45,6 +47,8 @@ class AlertController: AlertInputProtocol {
         return alert
         
     }
+    
+    //MARK: - Alert for request deleting user
     
     func showAlertRegQuestion(title: String, message: String, completionBlock: @escaping (Bool, String?, String?) -> Void) -> UIAlertController {
         
@@ -72,6 +76,8 @@ class AlertController: AlertInputProtocol {
         return alert
         
     }
+    
+    //MARK: - Alert for validating passwords
     
     func showAlertPassValidation(title: String, message: String, completionBlock: @escaping (Bool, String?, String?) -> Void) -> UIAlertController {
         
@@ -103,6 +109,8 @@ class AlertController: AlertInputProtocol {
         return alert
         
     }
+    
+    //MARK: -  Alert for remember the password request
     
     func showAlertEmailInput(title: String, message: String, completionBlock: @escaping (Bool, String?) -> Void) -> UIAlertController {
         
