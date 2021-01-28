@@ -16,9 +16,11 @@ class CalendarMainViewController: UIViewController {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var userAvatarImage: UIImageView!
     
     //MARK: - Variables
     var calendar = Calendar.current
+    var user: UserInfo!
     var numberOfRows = 6
     let formatter = DateFormatter()
     var presenter: CalendarInProtocol!
@@ -37,6 +39,8 @@ class CalendarMainViewController: UIViewController {
         view.addSubview(blurredEffectView)
         let subViewCount = view.subviews.count
         view.exchangeSubview(at: 1, withSubviewAt: subViewCount-1)
+        
+        presenter.setUser()
         
         
         
@@ -189,6 +193,10 @@ extension CalendarMainViewController: CalendarOutProtocol {
     
     func failure(error: Error) {
         
+    }
+    
+    func setUser(user: UserInfo?) {
+        print("curent user is: \(String(describing: user?.userName))")
     }
     
     

@@ -46,15 +46,15 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
     }
     
     func toMainScreenIfSuccess() {
-        router?.initialViewController()
+        router?.initialViewController(user: userInfo)
     }
     
     func registerTap(userName: String, email: String, password: String) {
         firebaseAuthManager?.createUser(userName: userName, email: email, password: password, completionBlock: { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(_):
-                
+            case .success(let user):
+                self.userInfo = user
                 self.view?.success()
             case .failure(let error):
                 self.view?.failure(error: error)

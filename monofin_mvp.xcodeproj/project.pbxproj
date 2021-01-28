@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78E7FF11B0311D77A5A82F76 /* Pods_monofin_mvpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B07E164204EFD882092A89 /* Pods_monofin_mvpTests.framework */; };
+		62638C183CA7D6230E231B3B /* Pods_monofin_mvpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3710CCE16D19176DD942FAE0 /* Pods_monofin_mvpTests.framework */; };
 		A50FC306258155750085A5B7 /* ErrorsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FC305258155750085A5B7 /* ErrorsList.swift */; };
 		A50FC307258155750085A5B7 /* ErrorsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FC305258155750085A5B7 /* ErrorsList.swift */; };
 		A52C1174257FE13B009EDAB2 /* RegisterEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1173257FE13B009EDAB2 /* RegisterEmailPresenter.swift */; };
@@ -95,8 +95,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3710CCE16D19176DD942FAE0 /* Pods_monofin_mvpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monofin_mvpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD413122F585519C9F87868 /* Pods_monofin_mvp_monofin_mvpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monofin_mvp_monofin_mvpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0E93883C0EA576CC60E9C7 /* Pods-monofin_mvpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvpTests.debug.xcconfig"; path = "Target Support Files/Pods-monofin_mvpTests/Pods-monofin_mvpTests.debug.xcconfig"; sourceTree = "<group>"; };
+		75EAC87CB31F9B599F65C4D3 /* Pods-monofin_mvp-monofin_mvpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp-monofin_mvpTests.debug.xcconfig"; path = "Target Support Files/Pods-monofin_mvp-monofin_mvpTests/Pods-monofin_mvp-monofin_mvpTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82C4883547939509AF5D3B09 /* Pods-monofin_mvpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvpTests.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvpTests/Pods-monofin_mvpTests.release.xcconfig"; sourceTree = "<group>"; };
 		84887DD37BBF0CEF365B8D63 /* Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvp-monofin_mvpUITests/Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig"; sourceTree = "<group>"; };
 		858FDA424D072BAC2AF3BE2E /* Pods-monofin_mvp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvp/Pods-monofin_mvp.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,8 +152,8 @@
 		A5E42B02257F8B070010782B /* LoginModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModulePresenter.swift; sourceTree = "<group>"; };
 		B5ECEC727EF9BE9A70282902 /* Pods-monofin_mvp-monofin_mvpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp-monofin_mvpUITests.debug.xcconfig"; path = "Target Support Files/Pods-monofin_mvp-monofin_mvpUITests/Pods-monofin_mvp-monofin_mvpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B95508D25BDA496742982A6B /* Pods-monofin_mvp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp.debug.xcconfig"; path = "Target Support Files/Pods-monofin_mvp/Pods-monofin_mvp.debug.xcconfig"; sourceTree = "<group>"; };
+		BA9F59FE7256FD75498C4B59 /* Pods-monofin_mvp-monofin_mvpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monofin_mvp-monofin_mvpTests.release.xcconfig"; path = "Target Support Files/Pods-monofin_mvp-monofin_mvpTests/Pods-monofin_mvp-monofin_mvpTests.release.xcconfig"; sourceTree = "<group>"; };
 		D59C3F4973EFFDB3683D51AE /* Pods_monofin_mvp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monofin_mvp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3B07E164204EFD882092A89 /* Pods_monofin_mvpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monofin_mvpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78E7FF11B0311D77A5A82F76 /* Pods_monofin_mvpTests.framework in Frameworks */,
+				62638C183CA7D6230E231B3B /* Pods_monofin_mvpTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +189,7 @@
 			children = (
 				D59C3F4973EFFDB3683D51AE /* Pods_monofin_mvp.framework */,
 				4BD413122F585519C9F87868 /* Pods_monofin_mvp_monofin_mvpUITests.framework */,
-				E3B07E164204EFD882092A89 /* Pods_monofin_mvpTests.framework */,
+				3710CCE16D19176DD942FAE0 /* Pods_monofin_mvpTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -543,6 +545,8 @@
 				84887DD37BBF0CEF365B8D63 /* Pods-monofin_mvp-monofin_mvpUITests.release.xcconfig */,
 				5E0E93883C0EA576CC60E9C7 /* Pods-monofin_mvpTests.debug.xcconfig */,
 				82C4883547939509AF5D3B09 /* Pods-monofin_mvpTests.release.xcconfig */,
+				75EAC87CB31F9B599F65C4D3 /* Pods-monofin_mvp-monofin_mvpTests.debug.xcconfig */,
+				BA9F59FE7256FD75498C4B59 /* Pods-monofin_mvp-monofin_mvpTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1047,6 +1051,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TWQL7PLAUC;
 				INFOPLIST_FILE = monofin_mvp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1067,6 +1072,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TWQL7PLAUC;
 				INFOPLIST_FILE = monofin_mvp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -33,11 +33,13 @@ extension Calendar {
     }()
     
 
+    @available(iOS 10.0, *)
     func startOfMonth(for date: Date) -> Date? {
         guard let interval = self.dateInterval(of: .month, for: date) else { return nil }
         return interval.start
     }
     
+    @available(iOS 10.0, *)
     func endOfMonth(for date: Date) -> Date? {
         guard let interval = self.dateInterval(of: .month, for: date) else { return nil }
         return self.date(byAdding: DateComponents(day: -1), to: interval.end)

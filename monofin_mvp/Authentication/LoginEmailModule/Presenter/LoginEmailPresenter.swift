@@ -28,7 +28,7 @@ protocol LoginEmailInputProtocol: class {
 }
 
 class LoginEmailPresenter: LoginEmailInputProtocol {
-    
+    var userParam: UserInfo!
     weak var view: LoginEmailOutputProtocol?
     var router: RouterInputProtocol?
     var alert: AlertInputProtocol?
@@ -65,7 +65,8 @@ class LoginEmailPresenter: LoginEmailInputProtocol {
         firebaseAuthManager?.signIn(email: email, password: password, completionBlock: { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(_):
+            case .success(let user):
+                self.userParam = user
                 self.view?.success(type: .loginOk)
             case .failure(let error):
                 self.view?.failure(error: error)
@@ -76,7 +77,7 @@ class LoginEmailPresenter: LoginEmailInputProtocol {
     }
     
     func toMainScreenIfSuccess() {
-        router?.initialViewController()
+        router?.initialViewController(user: userParam)
     }
     
     

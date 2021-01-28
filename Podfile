@@ -4,7 +4,7 @@ platform :ios, '14.2'
 post_install do |installer|
  installer.pods_project.targets.each do |target|
   target.build_configurations.each do |config|
-   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.2'
   end
  end
 end
@@ -19,6 +19,7 @@ target 'monofin_mvp' do
         pod 'FlagPhoneNumber'
         pod 'Firebase'
         pod 'Firebase/Auth'
+        pod 'FirebaseFirestoreSwift'
   target 'monofin_mvpTests' do
     inherit! :search_paths
     # Pods for testing
@@ -27,6 +28,7 @@ target 'monofin_mvp' do
         pod 'FlagPhoneNumber'
         pod 'Firebase'
         pod 'Firebase/Auth'
+        pod 'FirebaseFirestoreSwift'
   end
 
   target 'monofin_mvpUITests' do

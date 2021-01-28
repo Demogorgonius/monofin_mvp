@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct UserInfo: Decodable {
+struct UserInfo {
     
     var userName: String
     var uid: String
     var email: String
-    var password: String
+    var photoURL: URL?
     
 }

@@ -26,12 +26,15 @@ protocol SettingsPresenterInputProtocol: class {
          router: RouterInputProtocol,
          alert: AlertInputProtocol,
          firebaseAuthManager: FireBaseInputProtocol,
-         validator: ValidatorInputProtocol)
+         validator: ValidatorInputProtocol,
+         user: UserInfo?)
     func logoutTap() -> UIAlertController
     func deleteTap()
     func checkCurentUser(email: String, passowrd: String)
     func changePassword(newPassword: String)
     func passwordMatch(passwordOne: String, passwordTwo: String)
+    func saveAvatarOnServer(image: UIImage, uid: String)
+    func getAvatarFromServer(uid: String) -> UIImage?
     
 }
 
@@ -42,19 +45,29 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
     var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
     var validator: ValidatorInputProtocol?
+    var user: UserInfo?
     
     required init(view: SettingsPresenterOutputProtocol,
                   router: RouterInputProtocol,
                   alert: AlertInputProtocol,
                   firebaseAuthManager: FireBaseInputProtocol,
-                  validator: ValidatorInputProtocol) {
+                  validator: ValidatorInputProtocol, user: UserInfo?) {
         
         self.view = view
         self.router = router
         self.alert = alert
         self.firebaseAuthManager = firebaseAuthManager
         self.validator = validator
+        self.user = user
         
+    }
+    
+    func saveAvatarOnServer(image: UIImage, uid: String) {
+        
+    }
+    
+    func getAvatarFromServer(uid: String) -> UIImage? {
+        return nil
     }
     
     func logoutTap() -> UIAlertController {

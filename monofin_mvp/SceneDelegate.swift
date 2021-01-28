@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let router = Router(navigationVC: navigationVC, tabbarVC: tabbarVC, assemblyBuilder: assemblyBuilder)
 
         if UserDefaults.standard.value(forKey: "uid") != nil {
-
+            
             router.initialViewController()
             window?.rootViewController = navigationVC
             window?.makeKeyAndVisible()

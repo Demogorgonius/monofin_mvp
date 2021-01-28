@@ -21,7 +21,7 @@ protocol RouterInputProtocol: RouterOutputProtocol {
     func showRegisterEmailViewController()
     func showLoginSelectViewController()
     func showLoginEmailViewController()
-    func showSettingsViewController()
+    func showSettingsViewController(user: UserInfo?)
 }
 
 class Router: RouterInputProtocol {
@@ -40,8 +40,8 @@ class Router: RouterInputProtocol {
         
         if let navigationVC = navigationVC {
             if let tabbarVC = tabbarVC {
-                guard let calendarVC = assemblyBuilder?.createCalendarMainModule(router: self) else { return }
-                guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return }
+                guard let calendarVC = assemblyBuilder?.createCalendarMainModule( router: self) else { return }
+                guard let settingsVC = assemblyBuilder?.createSettingsModule( router: self) else { return }
                 calendarVC.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(named: "home_i"), selectedImage: UIImage(named: "home_a"))
                 settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(named: "set_i"), selectedImage: UIImage(named: "set_a"))
                 tabbarVC.viewControllers = [calendarVC, settingsVC]
@@ -87,9 +87,9 @@ class Router: RouterInputProtocol {
         }
     }
     
-    func showSettingsViewController() {
+    func showSettingsViewController(user: UserInfo?) {
         if let navigationVC = navigationVC {
-            guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return}
+            guard let settingsVC = assemblyBuilder?.createSettingsModule(user: user, router: self) else { return}
             navigationVC.pushViewController(settingsVC, animated: true)
         }
     }
