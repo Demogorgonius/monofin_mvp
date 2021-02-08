@@ -14,25 +14,9 @@
             filePath = "monofin_mvp/CalendarMainModule/Presenter/CalendarMainPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "addTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D8E14D4-1AA6-4FCB-B760-1A723645E8BC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/Router/Router.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "showAuthSelectViewController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,8 +30,8 @@
             filePath = "monofin_mvp/Authentication/RegisterEmailModule/Presenter/RegisterEmailPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "inputCheck(userName:email:password:passwordConform:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,128 +55,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C9C3EE5B-8E69-4FB5-B55A-5B80A07A8AFC"
+            uuid = "74CC1886-46F9-4743-AB8C-7C41F69A03BE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "monofin_mvp/Services/FireBaseAuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "getUserProfile(completionBlock:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "signIn(email:password:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "43329079-4A86-44A2-BD2B-036519430B01"
-            shouldBeEnabled = "Yes"
+            uuid = "0491EF78-130A-4206-B785-9CF661A40C7B"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/Services/FireBaseAuthManager.swift"
+            filePath = "monofin_mvp/Authentication/LoginEmailModule/Presenter/LoginEmailPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "getUserProfile(completionBlock:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "43329079-4A86-44A2-BD2B-036519430B01 - d82f2580702eca42"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "monofin_mvp.FireBaseAuthManager.getUserProfile(completionBlock: (Swift.Result&lt;monofin_mvp.UserInfo, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "monofin_mvp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Data/swift/monofin_mvp/monofin_mvp/Services/FireBaseAuthManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "213">
-               </Location>
-               <Location
-                  uuid = "43329079-4A86-44A2-BD2B-036519430B01 - f93adc9bf6bad775"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in monofin_mvp.FireBaseAuthManager.getUserProfile(completionBlock: (Swift.Result&lt;monofin_mvp.UserInfo, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "monofin_mvp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Data/swift/monofin_mvp/monofin_mvp/Services/FireBaseAuthManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "316">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B3A71948-28E2-4C5A-9F9D-04A867A0B900"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/Services/FireBaseAuthManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "getUserProfile(completionBlock:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "loginTap(email:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FA3EA4D-9DDE-4D14-826A-69E7173AC386"
-            shouldBeEnabled = "Yes"
+            uuid = "41571714-E0FB-4D4E-841B-C151605D10EE"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/Services/FireBaseAuthManager.swift"
+            filePath = "monofin_mvp/Authentication/LoginEmailModule/Presenter/LoginEmailPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "getUserProfile(completionBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A5F79A62-7E30-4C5C-B25F-84772A57DE8A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/CalendarMainModule/Presenter/CalendarMainPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "getUserProfile()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8EB32249-BDFE-49BD-8843-638CE6428B5E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/CalendarMainModule/Presenter/CalendarMainPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "getUserProfile()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "loginTap(email:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -67,6 +67,9 @@ class LoginEmailPresenter: LoginEmailInputProtocol {
             switch result {
             case .success(let user):
                 self.userParam = user
+                UserDefaults.standard.set(self.userParam.userName, forKey: "userName")
+                UserDefaults.standard.set(self.userParam.email, forKey: "userEmail")
+                UserDefaults.standard.set(self.userParam.photoURL, forKey: "userPhotoUrl")
                 self.view?.success(type: .loginOk)
             case .failure(let error):
                 self.view?.failure(error: error)
@@ -77,7 +80,7 @@ class LoginEmailPresenter: LoginEmailInputProtocol {
     }
     
     func toMainScreenIfSuccess() {
-        router?.initialViewController(user: userParam)
+        router?.initialViewController()
     }
     
     

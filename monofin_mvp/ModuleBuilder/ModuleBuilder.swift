@@ -9,13 +9,13 @@ import Foundation
 
 protocol AssemblyBuilderProtocol {
     
-    func createCalendarMainModule(user: UserInfo?, router: RouterInputProtocol, fireBaseAuth: FireBaseInputProtocol) -> UIViewController
+    func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController
     func createAuthSelectModule(router: RouterInputProtocol) -> UIViewController
     func createRegisterEmailModule(router: RouterInputProtocol) -> UIViewController
     func createLoginModule(router: RouterInputProtocol) -> UIViewController
     func createLoginSelectModule(router: RouterInputProtocol) -> UIViewController
     func createLoginEmailModule(router: RouterInputProtocol) -> UIViewController
-    func createSettingsModule(user: UserInfo?, router: RouterInputProtocol) -> UIViewController
+    func createSettingsModule(router: RouterInputProtocol) -> UIViewController
     
 }
 
@@ -23,10 +23,10 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     
     
     
-    func createCalendarMainModule(user: UserInfo?, router: RouterInputProtocol, fireBaseAuth: FireBaseInputProtocol) -> UIViewController {
+    func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController {
         
         let view = CalendarMainViewController()
-        let presenter = CalendarMainPresenter(view: view, router: router, fireBaseAuth: fireBaseAuth)
+        let presenter = CalendarMainPresenter(view: view, router: router)
         view.presenter = presenter
         return view
         
@@ -89,12 +89,12 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         
     }
     
-    func createSettingsModule(user: UserInfo?, router: RouterInputProtocol) -> UIViewController {
+    func createSettingsModule(router: RouterInputProtocol) -> UIViewController {
         let firebaseAuthManager = FireBaseAuthManager()
         let view = SettingsViewController()
         let alert = AlertController()
         let validator = ValidatiorClass()
-        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager, validator: validator, user: user)
+        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager, validator: validator)
         view.validator = validator
         view.presenter = presenter
         view.alert = alert

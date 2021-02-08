@@ -9,9 +9,9 @@ import Foundation
 
 struct UserInfo {
     
-    var userName: String
-    var uid: String
-    var email: String
+    var userName: String?
+    var uid: String?
+    var email: String?
     var photoURL: URL?
     
 }

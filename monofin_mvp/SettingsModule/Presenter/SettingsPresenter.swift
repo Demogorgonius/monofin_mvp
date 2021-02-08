@@ -26,8 +26,7 @@ protocol SettingsPresenterInputProtocol: class {
          router: RouterInputProtocol,
          alert: AlertInputProtocol,
          firebaseAuthManager: FireBaseInputProtocol,
-         validator: ValidatorInputProtocol,
-         user: UserInfo?)
+         validator: ValidatorInputProtocol)
     func logoutTap() -> UIAlertController
     func deleteTap()
     func checkCurentUser(email: String, passowrd: String)
@@ -45,20 +44,20 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
     var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
     var validator: ValidatorInputProtocol?
-    var user: UserInfo?
+
     
     required init(view: SettingsPresenterOutputProtocol,
                   router: RouterInputProtocol,
                   alert: AlertInputProtocol,
                   firebaseAuthManager: FireBaseInputProtocol,
-                  validator: ValidatorInputProtocol, user: UserInfo?) {
+                  validator: ValidatorInputProtocol) {
         
         self.view = view
         self.router = router
         self.alert = alert
         self.firebaseAuthManager = firebaseAuthManager
         self.validator = validator
-        self.user = user
+        
         
     }
     
@@ -77,6 +76,9 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
             case true:
                 print("user select OK !!!")
                 UserDefaults.standard.set(nil, forKey: "uid")
+                UserDefaults.standard.set(nil, forKey: "userName")
+                UserDefaults.standard.set(nil, forKey: "userEmail")
+                UserDefaults.standard.set(nil, forKey: "userPhotoUrl")
                 self.router?.loginViewController()
             case false:
                 print("user select cancel  !!!")
@@ -87,7 +89,7 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
     
     func checkCurentUser(email: String, passowrd: String) {
         let uid: String = UserDefaults.standard.value(forKey: "uid") as! String
-        firebaseAuthManager?.checkCurenUser(email: email, password: passowrd, uid: uid, completionBlock: { [weak self] result in
+        firebaseAuthManager?.checkCurentUser(email: email, password: passowrd, uid: uid, completionBlock: { [weak self] result in
             
             guard let self = self else { return }
             switch result {
@@ -112,6 +114,9 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
             switch result {
             case .success(_):
                 UserDefaults.standard.setValue(nil, forKey: "uid")
+                UserDefaults.standard.set(nil, forKey: "userName")
+                UserDefaults.standard.set(nil, forKey: "userEmail")
+                UserDefaults.standard.set(nil, forKey: "userPhotoUrl")
                 self.router?.loginViewController()
             case .failure(let error):
                 self.view?.failure(error: error)

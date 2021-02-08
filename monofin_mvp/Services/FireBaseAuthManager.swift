@@ -11,18 +11,19 @@ import Firebase
 import FirebaseFirestoreSwift
 
 protocol FireBaseInputProtocol {
+    
     func createUser(userName: String, email: String, password: String, completionBlock: @escaping (Result<UserInfo, Error>) -> Void)
     func signIn(email: String, password: String, completionBlock: @escaping (Result<UserInfo, Error>) -> Void)
     func deleteUser(completionBlock: @escaping (Result<Bool, Error>) -> Void)
-    func checkCurenUser(email: String, password: String, uid: String, completionBlock: @escaping(Result<Bool,Error>) -> Void)
+    func checkCurentUser(email: String, password: String, uid: String, completionBlock: @escaping(Result<Bool,Error>) -> Void)
     func changePassword(newPassword: String, completionBlock: @escaping (Result<Bool,Error>) -> Void)
     func rememberPassword(email: String, complitionBlock: @escaping (Result<Bool,Error>) -> Void)
     func userUpdateProfileImage(image: UIImage, completionBlock: @escaping(Result<Bool, Error>) -> Void)
-    func getUserProfile(completionBlock: @escaping(Result<UserInfo, Error>) -> Void)
+    
 }
 
 class FireBaseAuthManager: FireBaseInputProtocol {
-    
+    var user: UserInfo!
     func createUser(userName: String, email: String, password: String, completionBlock: @escaping (Result<UserInfo, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
@@ -59,21 +60,21 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                 return
             } else {
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "uid")
-                var user: UserInfo!
+                //var user: UserInfo!
                 if let currentUser = Auth.auth().currentUser {
                     
-                    user = UserInfo(userName: currentUser.displayName ?? "noname",
+                    self.user = UserInfo(userName: currentUser.displayName ?? "noname",
                                     uid: currentUser.uid,
                                     email: currentUser.email!,
                                     photoURL: currentUser.photoURL)
                     
                 }
-                completionBlock(.success(user))
+                completionBlock(.success(self.user))
             }
         }
     }
     
-    func checkCurenUser(email: String, password: String, uid: String, completionBlock: @escaping (Result<Bool, Error>) -> Void) {
+    func checkCurentUser(email: String, password: String, uid: String, completionBlock: @escaping (Result<Bool, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 completionBlock(.failure(error))
@@ -101,6 +102,9 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                 return
             } else {
                 UserDefaults.standard.set(nil, forKey: "uid")
+                UserDefaults.standard.set(nil, forKey: "userName")
+                UserDefaults.standard.set(nil, forKey: "userEmail")
+                UserDefaults.standard.set(nil, forKey: "userPhotoUrl")
                 completionBlock(.success(true))
             }
             
@@ -132,22 +136,6 @@ class FireBaseAuthManager: FireBaseInputProtocol {
         
     }
     
-    func getUserProfile(completionBlock: @escaping (Result<UserInfo, Error>) -> Void) {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.reload(completion: { (error) in
-            if let error = error {
-                completionBlock(.failure(error))
-            } else {
-                var user: UserInfo!
-                if let curUser = Auth.auth().currentUser {
-                    user = UserInfo(userName: curUser.displayName ?? "noname",
-                                    uid: curUser.uid,
-                                    email: curUser.email!,
-                                    photoURL: curUser.photoURL)
-                }
-                completionBlock(.success(user))
-            }
-        })
-    }
+   
     
 }

@@ -195,8 +195,8 @@ extension CalendarMainViewController: CalendarOutProtocol {
         
     }
     
-    func setUser(user: UserInfo?) {
-        print("curent user is: \(String(describing: user?.userName))")
+    func setUser(user: UserInfo) {
+        print("curent user is: \(String(describing: user.userName))")
     }
     
     

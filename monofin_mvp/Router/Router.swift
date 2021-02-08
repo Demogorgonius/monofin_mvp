@@ -89,7 +89,7 @@ class Router: RouterInputProtocol {
     
     func showSettingsViewController(user: UserInfo?) {
         if let navigationVC = navigationVC {
-            guard let settingsVC = assemblyBuilder?.createSettingsModule(user: user, router: self) else { return}
+            guard let settingsVC = assemblyBuilder?.createSettingsModule(router: self) else { return}
             navigationVC.pushViewController(settingsVC, animated: true)
         }
     }

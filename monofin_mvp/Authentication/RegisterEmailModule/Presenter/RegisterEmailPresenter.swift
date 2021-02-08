@@ -20,7 +20,7 @@ protocol RegisterEmailInputProtocol: class {
     func registerTap(userName: String, email: String, password: String)
     func inputCheck(userName: String, email: String, password: String, passwordConform: String) -> Bool
     func toMainScreenIfSuccess()
-    var userInfo: UserInfo? { get set }
+    var userParam: UserInfo! { get set }
 }
 
 class RegisterEmailPresenter: RegisterEmailInputProtocol {
@@ -30,7 +30,7 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
     var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
     var validator: ValidatorInputProtocol?
-    var userInfo: UserInfo?
+    var userParam: UserInfo!
     
     
     required init(view: RegisterEmailOutputProtocol,
@@ -46,7 +46,7 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
     }
     
     func toMainScreenIfSuccess() {
-        router?.initialViewController(user: userInfo)
+        router?.initialViewController()
     }
     
     func registerTap(userName: String, email: String, password: String) {
@@ -54,7 +54,10 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let user):
-                self.userInfo = user
+                self.userParam = user
+                UserDefaults.standard.set(self.userParam.userName, forKey: "userName")
+                UserDefaults.standard.set(self.userParam.email, forKey: "userEmail")
+                UserDefaults.standard.set(self.userParam.photoURL, forKey: "userPhotoUrl")
                 self.view?.success()
             case .failure(let error):
                 self.view?.failure(error: error)

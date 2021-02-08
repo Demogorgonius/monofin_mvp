@@ -8,30 +8,32 @@ import UIKit
 import Foundation
 
 protocol CalendarOutProtocol: class {
-    func setUser(user: UserInfo?)
+    func setUser(user: UserInfo)
     func success()
     func failure(error: Error)
 }
 
 protocol CalendarInProtocol: class {
-    init(view: CalendarOutProtocol, router: RouterInputProtocol, fireBaseAuth: FireBaseInputProtocol)
+    init(view: CalendarOutProtocol, router: RouterInputProtocol)
     func addTapped()
     func setUser()
-    func getUserProfile()
+    
 }
 
 class CalendarMainPresenter: CalendarInProtocol {
     
     weak var view: CalendarOutProtocol?
     var router: RouterInputProtocol?
-    var user: UserInfo?
+    var email: String?
+    var uid: String?
+    var userName: String?
+    var photoURL: URL?
     var fireBaseAuth: FireBaseInputProtocol?
     
-    required init(view: CalendarOutProtocol, router: RouterInputProtocol, fireBaseAuth: FireBaseInputProtocol) {
-
+    required init(view: CalendarOutProtocol, router: RouterInputProtocol) {
+        
         self.router = router
         self.view = view
-        self.fireBaseAuth = fireBaseAuth
         
     }
     
@@ -40,21 +42,19 @@ class CalendarMainPresenter: CalendarInProtocol {
     }
     
     public func setUser() {
-        self.view?.setUser(user: user)
+        if UserDefaults.standard.value(forKey: "userEmail") != nil {
+            print((UserDefaults.standard.dictionaryRepresentation() as NSDictionary).value(forKey: "userEmail"))
+            if let email = UserDefaults.standard.value(forKey: "userEmail") as? String { self.email = email }
+            if let uid = UserDefaults.standard.value(forKey: "uid") as? String { self.uid = uid }
+            if let userName = UserDefaults.standard.value(forKey: "userName") as? String { self.userName = userName }
+            if let photoURL = UserDefaults.standard.value(forKey: "userPhotoUrl") as? URL { self.photoURL = photoURL }
+            let user = UserInfo(userName: userName, uid: uid, email: email, photoURL: photoURL)
+            self.view?.setUser(user: user)
+        } else {
+            router?.showAuthSelectViewController()
+        }
+        
     }
     
-    func getUserProfile() {
-
-        fireBaseAuth?.getUserProfile(completionBlock: { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let userInfo):
-                print("first current user is: \(userInfo.userName)")
-                self.user = userInfo
-            }
-        })
-    }
     
 }
