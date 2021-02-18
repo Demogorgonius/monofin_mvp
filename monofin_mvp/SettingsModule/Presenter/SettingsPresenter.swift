@@ -11,11 +11,12 @@ import UIKit
 enum TypeOfAction {
     case checkCurentUser
     case changePassword
+    case gettingAvatar
 }
 
 protocol SettingsPresenterOutputProtocol: class {
     
-    func success(type: TypeOfAction)
+    func success(type: TypeOfAction, avatarImage: UIImage?)
     func failure(error: Error)
     
 }
@@ -26,14 +27,16 @@ protocol SettingsPresenterInputProtocol: class {
          router: RouterInputProtocol,
          alert: AlertInputProtocol,
          firebaseAuthManager: FireBaseInputProtocol,
-         validator: ValidatorInputProtocol)
+         validator: ValidatorInputProtocol,
+         fireStoreManager: FireStoreProtocol)
     func logoutTap() -> UIAlertController
     func deleteTap()
     func checkCurentUser(email: String, passowrd: String)
     func changePassword(newPassword: String)
     func passwordMatch(passwordOne: String, passwordTwo: String)
-    func saveAvatarOnServer(image: UIImage, uid: String)
-    func getAvatarFromServer(uid: String) -> UIImage?
+    func saveAvatar(image: UIImage)
+    func getAvatar()
+    
     
 }
 
@@ -44,29 +47,23 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
     var alert: AlertInputProtocol?
     var firebaseAuthManager: FireBaseInputProtocol?
     var validator: ValidatorInputProtocol?
-
+    var fireStoreManager: FireStoreProtocol?
+    
     
     required init(view: SettingsPresenterOutputProtocol,
                   router: RouterInputProtocol,
                   alert: AlertInputProtocol,
                   firebaseAuthManager: FireBaseInputProtocol,
-                  validator: ValidatorInputProtocol) {
+                  validator: ValidatorInputProtocol,
+                  fireStoreManager: FireStoreProtocol) {
         
         self.view = view
         self.router = router
         self.alert = alert
         self.firebaseAuthManager = firebaseAuthManager
         self.validator = validator
+        self.fireStoreManager = fireStoreManager
         
-        
-    }
-    
-    func saveAvatarOnServer(image: UIImage, uid: String) {
-        
-    }
-    
-    func getAvatarFromServer(uid: String) -> UIImage? {
-        return nil
     }
     
     func logoutTap() -> UIAlertController {
@@ -97,7 +94,7 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
                 self.view?.failure(error: error)
             case .success(let authCheck):
                 if authCheck {
-                    self.view?.success(type: .checkCurentUser)
+                    self.view?.success(type: .checkCurentUser, avatarImage: nil)
                 } else {
                     self.view?.failure(error: ValidateInputError.authError)                    
                 }
@@ -132,12 +129,12 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
             case .failure(let error):
                 self.view?.failure(error: error)
             case .success(_):
-                self.view?.success(type: .changePassword)
+                self.view?.success(type: .changePassword, avatarImage: nil)
             }
             
         })
     }
-
+    
     func passwordMatch(passwordOne: String, passwordTwo: String) {
         
         
@@ -146,6 +143,66 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
         } else {
             view?.failure(error: ValidateInputError.passwordNotMatch)
         }
+        
+    }
+    
+    func saveAvatar(image: UIImage) {
+        let defaults = UserDefaults.standard
+        if defaults.value(forKey: "userPhotoUrl") == nil {
+            if defaults.value(forKey: "uid") != nil {
+                let uid = defaults.string(forKey: "uid")
+                fireStoreManager?.saveAvatar(photo: image, uid: uid!, completion: { result in
+                    switch result {
+                    case .failure(let error):
+                        self.view?.failure(error: error)
+                    case .success(let url):
+                        defaults.set(url.absoluteString, forKey: "userPhotoUrl")
+                    }
+                })
+                
+            } else {
+                return
+            }
+        } else {
+            let url = defaults.string(forKey: "userPhotoUrl")
+            fireStoreManager?.deleteAvatar(url: url!, completion: { result in
+                switch result {
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                case .success(_):
+                    print("Old avatar has been delete!")
+                }
+            })
+            
+            let uid = defaults.string(forKey: "uid")
+            fireStoreManager?.saveAvatar(photo: image, uid: uid!, completion: { result in
+                switch result {
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                case .success(let url):
+                    defaults.set(url.absoluteString, forKey: "userPhotoUrl")
+                }
+            })
+            
+        }
+    }
+    
+    func getAvatar() {
+        
+        let defaults = UserDefaults.standard
+        if let userAvatarUrl = defaults.string(forKey: "userPhotoUrl") {
+            fireStoreManager?.getAvatar(url: userAvatarUrl, completion: { result in
+                switch result {
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                case .success(let avatar):
+                    self.view?.success(type: .gettingAvatar, avatarImage: avatar)
+                }
+            })
+        } else {
+            return
+        }
+        
         
     }
     

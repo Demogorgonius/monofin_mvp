@@ -12,6 +12,7 @@ struct UserInfo {
     var userName: String?
     var uid: String?
     var email: String?
-    var photoURL: URL?
+    var photoURL: String?
+    var password: String?
     
 }

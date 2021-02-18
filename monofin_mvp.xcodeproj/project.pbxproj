@@ -17,6 +17,8 @@
 		A52C1183257FFDD4009EDAB2 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C1181257FFDD4009EDAB2 /* AlertController.swift */; };
 		A558A0DB259152BD00BFFAC3 /* StringTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558A0DA259152BD00BFFAC3 /* StringTypeList.swift */; };
 		A558A0E0259153A800BFFAC3 /* ValidationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558A0DF259153A800BFFAC3 /* ValidationModule.swift */; };
+		A58B1B0A25D3094D00FF7B60 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58B1B0925D3094D00FF7B60 /* FireStoreManager.swift */; };
+		A58B1B0B25D3094D00FF7B60 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58B1B0925D3094D00FF7B60 /* FireStoreManager.swift */; };
 		A5B25E542568404A0006BD67 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E532568404A0006BD67 /* Router.swift */; };
 		A5B25E5B256840950006BD67 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E5A256840950006BD67 /* ModuleBuilder.swift */; };
 		A5B25E61256840C50006BD67 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25E60256840C50006BD67 /* CoreDataManager.swift */; };
@@ -108,6 +110,7 @@
 		A52C1181257FFDD4009EDAB2 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		A558A0DA259152BD00BFFAC3 /* StringTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTypeList.swift; sourceTree = "<group>"; };
 		A558A0DF259153A800BFFAC3 /* ValidationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationModule.swift; sourceTree = "<group>"; };
+		A58B1B0925D3094D00FF7B60 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		A5B25E532568404A0006BD67 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A5B25E5A256840950006BD67 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		A5B25E60256840C50006BD67 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -214,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				A5B25E60256840C50006BD67 /* CoreDataManager.swift */,
+				A58B1B0925D3094D00FF7B60 /* FireStoreManager.swift */,
 				A5E42AD0257E1F1A0010782B /* FireBaseAuthManager.swift */,
 				A52C1181257FFDD4009EDAB2 /* AlertController.swift */,
 				A50FC305258155750085A5B7 /* ErrorsList.swift */,
@@ -837,6 +841,7 @@
 				A5B25E542568404A0006BD67 /* Router.swift in Sources */,
 				A52C1182257FFDD4009EDAB2 /* AlertController.swift in Sources */,
 				A5BCD87E2576ACF600758EC0 /* AuthSelectViewController.swift in Sources */,
+				A58B1B0A25D3094D00FF7B60 /* FireStoreManager.swift in Sources */,
 				A558A0DB259152BD00BFFAC3 /* StringTypeList.swift in Sources */,
 				A5DF5CE0258580950061EB09 /* SettingsPresenter.swift in Sources */,
 				A5CE3F772567EBB100C44CE9 /* AppDelegate.swift in Sources */,
@@ -876,6 +881,7 @@
 				A5DF5CCA258511770061EB09 /* LoginEmailPresenter.swift in Sources */,
 				A52C117A257FE443009EDAB2 /* UserInfo.swift in Sources */,
 				A5CE3F8E2567EBB300C44CE9 /* monofin_mvpTests.swift in Sources */,
+				A58B1B0B25D3094D00FF7B60 /* FireStoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

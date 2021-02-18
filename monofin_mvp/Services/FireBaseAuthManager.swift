@@ -43,7 +43,8 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                                 user = UserInfo(userName: curUser.displayName ?? "naname",
                                                 uid: curUser.uid,
                                                 email: curUser.email!,
-                                                photoURL: curUser.photoURL)
+                                                photoURL: curUser.photoURL?.absoluteString,
+                                                password: password)
                             }
                             completionBlock(.success(user))
                         }
@@ -66,7 +67,8 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                     self.user = UserInfo(userName: currentUser.displayName ?? "noname",
                                     uid: currentUser.uid,
                                     email: currentUser.email!,
-                                    photoURL: currentUser.photoURL)
+                                    photoURL: currentUser.photoURL?.absoluteString,
+                                    password: password)
                     
                 }
                 completionBlock(.success(self.user))
@@ -81,7 +83,7 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                 return
             } else {
                 if let currentUserUid = Auth.auth().currentUser?.uid {
-                    if currentUserUid == UserDefaults.standard.value(forKey: "uid") as! String {
+                    if currentUserUid == UserDefaults.standard.string(forKey: "uid") {
                         completionBlock(.success(true))
                         
                     } else {
@@ -101,10 +103,12 @@ class FireBaseAuthManager: FireBaseInputProtocol {
                 completionBlock(.failure(error))
                 return
             } else {
-                UserDefaults.standard.set(nil, forKey: "uid")
-                UserDefaults.standard.set(nil, forKey: "userName")
-                UserDefaults.standard.set(nil, forKey: "userEmail")
-                UserDefaults.standard.set(nil, forKey: "userPhotoUrl")
+                let defaults = UserDefaults.standard
+                defaults.set(nil, forKey: "uid")
+                defaults.set(nil, forKey: "userName")
+                defaults.set(nil, forKey: "userEmail")
+                defaults.set(nil, forKey: "userPhotoUrl")
+                defaults.synchronize()
                 completionBlock(.success(true))
             }
             

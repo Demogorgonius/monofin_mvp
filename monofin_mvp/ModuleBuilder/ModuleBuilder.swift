@@ -26,7 +26,8 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     func createCalendarMainModule(router: RouterInputProtocol) -> UIViewController {
         
         let view = CalendarMainViewController()
-        let presenter = CalendarMainPresenter(view: view, router: router)
+        let fireStoreManager = FireStoreManager()
+        let presenter = CalendarMainPresenter(view: view, router: router, fireStoreManager: fireStoreManager)
         view.presenter = presenter
         return view
         
@@ -94,10 +95,12 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         let view = SettingsViewController()
         let alert = AlertController()
         let validator = ValidatiorClass()
-        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager, validator: validator)
+        let fireStoreManager = FireStoreManager()
+        let presenter = SettingsPresenterProtocol(view: view, router: router, alert: alert, firebaseAuthManager: firebaseAuthManager, validator: validator, fireStoreManager: fireStoreManager)
         view.validator = validator
         view.presenter = presenter
         view.alert = alert
+        view.fireStoreManager = fireStoreManager
         return view
     }
 }

@@ -55,9 +55,11 @@ class RegisterEmailPresenter: RegisterEmailInputProtocol {
             switch result {
             case .success(let user):
                 self.userParam = user
-                UserDefaults.standard.set(self.userParam.userName, forKey: "userName")
-                UserDefaults.standard.set(self.userParam.email, forKey: "userEmail")
-                UserDefaults.standard.set(self.userParam.photoURL, forKey: "userPhotoUrl")
+                let defaults = UserDefaults.standard
+                defaults.set(self.userParam.userName, forKey: "userName")
+                defaults.set(self.userParam.email, forKey: "userEmail")
+                defaults.set(self.userParam.photoURL, forKey: "userPhotoUrl")
+                defaults.set(self.userParam.password, forKey: "password")
                 self.view?.success()
             case .failure(let error):
                 self.view?.failure(error: error)

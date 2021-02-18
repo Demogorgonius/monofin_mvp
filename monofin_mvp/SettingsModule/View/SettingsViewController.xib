@@ -124,7 +124,7 @@
                     </subviews>
                 </stackView>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="y8N-BY-hVq">
-                    <rect key="frame" x="16" y="60" width="154" height="205.5"/>
+                    <rect key="frame" x="16" y="60" width="160" height="160"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

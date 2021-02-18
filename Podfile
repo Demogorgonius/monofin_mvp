@@ -20,6 +20,7 @@ target 'monofin_mvp' do
         pod 'Firebase'
         pod 'Firebase/Auth'
         pod 'FirebaseFirestoreSwift'
+	pod 'Firebase/Storage'
   target 'monofin_mvpTests' do
     inherit! :search_paths
     # Pods for testing
@@ -29,6 +30,7 @@ target 'monofin_mvp' do
         pod 'Firebase'
         pod 'Firebase/Auth'
         pod 'FirebaseFirestoreSwift'
+	pod 'Firebase/Storage'
   end
 
   target 'monofin_mvpUITests' do

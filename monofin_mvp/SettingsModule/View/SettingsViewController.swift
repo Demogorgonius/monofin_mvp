@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
     var presenter: SettingsPresenterInputProtocol!
     var alert: AlertInputProtocol!
     var validator: ValidatorInputProtocol!
+    var fireStoreManager: FireStoreProtocol!
     var imagePicker = UIImagePickerController()
     
     //MARK: - ViewDidLoad
@@ -41,6 +42,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
         userDeleteButton.layer.cornerRadius = userDeleteButton.bounds.height/2
         changePasswordButton.layer.cornerRadius = changePasswordButton.bounds.height/2
         changeAvatarButton.layer.cornerRadius = changeAvatarButton.bounds.height/2
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.height/2
+        presenter.getAvatar()
         
     }
     
@@ -153,6 +156,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.clipsToBounds = true
         dismiss(animated: true, completion: nil)
+        presenter.saveAvatar(image: avatarImageView.image!)
     }
     
     
@@ -162,12 +166,16 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
 
 
 extension SettingsViewController: SettingsPresenterOutputProtocol {
-    func success(type: TypeOfAction) {
+    func success(type: TypeOfAction, avatarImage: UIImage?) {
         switch type {
         case .checkCurentUser:
             presenter.deleteTap()
         case .changePassword:
             present(alert.showAlert(title: "Внимание!", message: "Пароль был изменён!"), animated: true)
+        case .gettingAvatar:
+            if let avatarImage = avatarImage {
+                avatarImageView.image = avatarImage
+            } else { return }
         }
     }
     func failure(error: Error) {
