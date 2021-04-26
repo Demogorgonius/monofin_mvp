@@ -16,6 +16,7 @@
                 <outlet property="changePasswordButton" destination="OCo-fk-ZoV" id="lS7-88-oCG"/>
                 <outlet property="userDeleteButton" destination="iDm-4r-GJl" id="lex-zw-3C0"/>
                 <outlet property="userLogoutButton" destination="QKj-Wf-s8h" id="bFN-lV-vn1"/>
+                <outlet property="userNameLabel" destination="Diu-Kc-dRw" id="XYh-Oe-SSw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -123,17 +124,30 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="y8N-BY-hVq">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="y8N-BY-hVq">
                     <rect key="frame" x="16" y="60" width="160" height="160"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="y8N-BY-hVq" secondAttribute="height" multiplier="160:161" id="Fcr-18-SUG"/>
+                    </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Diu-Kc-dRw">
+                    <rect key="frame" x="217" y="120" width="155.5" height="41"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="y8N-BY-hVq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15.5" id="3tN-cZ-fKj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="umd-cl-wIl" secondAttribute="trailing" constant="16" id="C7K-aT-uYW"/>
+                <constraint firstItem="y8N-BY-hVq" firstAttribute="leading" secondItem="umd-cl-wIl" secondAttribute="leading" id="FYb-lL-kjv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y8N-BY-hVq" secondAttribute="trailing" constant="238" id="IBk-M0-9A3"/>
                 <constraint firstItem="umd-cl-wIl" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="ySH-cW-k2R"/>
                 <constraint firstItem="umd-cl-wIl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="z9g-Hv-zJW"/>
+                <constraint firstItem="Diu-Kc-dRw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="76" id="zE2-Da-HMk"/>
+                <constraint firstItem="Diu-Kc-dRw" firstAttribute="leading" secondItem="y8N-BY-hVq" secondAttribute="trailing" constant="41" id="zbx-Bu-UZp"/>
             </constraints>
             <point key="canvasLocation" x="-188.40579710144928" y="135.9375"/>
         </view>

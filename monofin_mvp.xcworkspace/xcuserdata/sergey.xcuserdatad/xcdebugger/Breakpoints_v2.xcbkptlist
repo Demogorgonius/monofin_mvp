@@ -46,8 +46,8 @@
             filePath = "monofin_mvp/SettingsModule/View/SettingsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "chooseImagePickerAction(source:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,58 +110,10 @@
             filePath = "monofin_mvp/SettingsModule/View/SettingsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7F98DA75-B16C-4091-B7B6-DE7616DDB9D5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monofin_mvp/SettingsModule/Presenter/SettingsPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "getAvatar()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7F98DA75-B16C-4091-B7B6-DE7616DDB9D5 - 88caa8066a3cb1d3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "monofin_mvp.SettingsPresenterProtocol.getAvatar() -&gt; ()"
-                  moduleName = "monofin_mvp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Data/swift/monofin_mvp/monofin_mvp/SettingsModule/Presenter/SettingsPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "511">
-               </Location>
-               <Location
-                  uuid = "7F98DA75-B16C-4091-B7B6-DE7616DDB9D5 - 70ef69963d2e5e12"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; () in monofin_mvp.SettingsPresenterProtocol.getAvatar() -&gt; ()"
-                  moduleName = "monofin_mvp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Data/swift/monofin_mvp/monofin_mvp/SettingsModule/Presenter/SettingsPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
-                  offsetFromSymbolStart = "165">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

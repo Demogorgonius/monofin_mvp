@@ -12,11 +12,12 @@ enum TypeOfAction {
     case checkCurentUser
     case changePassword
     case gettingAvatar
+    case gettingUserName
 }
 
 protocol SettingsPresenterOutputProtocol: class {
     
-    func success(type: TypeOfAction, avatarImage: UIImage?)
+    func success(type: TypeOfAction, avatarImage: UIImage?, userName: String?)
     func failure(error: Error)
     
 }
@@ -36,6 +37,7 @@ protocol SettingsPresenterInputProtocol: class {
     func passwordMatch(passwordOne: String, passwordTwo: String)
     func saveAvatar(image: UIImage)
     func getAvatar()
+    func getUserName()
     
     
 }
@@ -94,7 +96,7 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
                 self.view?.failure(error: error)
             case .success(let authCheck):
                 if authCheck {
-                    self.view?.success(type: .checkCurentUser, avatarImage: nil)
+                    self.view?.success(type: .checkCurentUser, avatarImage: nil, userName: nil)
                 } else {
                     self.view?.failure(error: ValidateInputError.authError)                    
                 }
@@ -129,7 +131,7 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
             case .failure(let error):
                 self.view?.failure(error: error)
             case .success(_):
-                self.view?.success(type: .changePassword, avatarImage: nil)
+                self.view?.success(type: .changePassword, avatarImage: nil, userName: nil)
             }
             
         })
@@ -196,13 +198,23 @@ class SettingsPresenterProtocol: SettingsPresenterInputProtocol {
                 case .failure(let error):
                     self.view?.failure(error: error)
                 case .success(let avatar):
-                    self.view?.success(type: .gettingAvatar, avatarImage: avatar)
+                    self.view?.success(type: .gettingAvatar, avatarImage: avatar, userName: nil)
                 }
             })
         } else {
             return
         }
         
+    }
+    
+    func getUserName() {
+        let defaults = UserDefaults.standard
+        let userName = defaults.string(forKey: "userName")
+        if userName != nil {
+            self.view?.success(type: .gettingUserName, avatarImage: nil, userName: userName)
+        } else {
+            self.view?.success(type: .gettingUserName, avatarImage: nil, userName: "Anonimous")
+        }
         
     }
     

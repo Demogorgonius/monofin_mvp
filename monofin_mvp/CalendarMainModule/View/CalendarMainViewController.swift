@@ -195,8 +195,17 @@ extension CalendarMainViewController: CalendarOutProtocol {
         
     }
     
-    func setUser(user: UserInfo) {
+    func setUser(user: UserInfo, userAvatarImg: UIImage?) {
+        
+        if userAvatarImg != nil {
+            userAvatarImage.image = userAvatarImg
+        } else {
+            userAvatarImage.image = UIImage(named: "defaultAvatar")
+        }
+        
         print("curent user is: \(String(describing: user.userName))")
+        
+        
     }
     
     

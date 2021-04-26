@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var changeAvatarButton: UIButton!
+    @IBOutlet weak var userNameLabel : UILabel!
     
     //MARK: - Variables
     
@@ -44,6 +45,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
         changeAvatarButton.layer.cornerRadius = changeAvatarButton.bounds.height/2
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height/2
         presenter.getAvatar()
+        presenter.getUserName()
         
     }
     
@@ -166,7 +168,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate 
 
 
 extension SettingsViewController: SettingsPresenterOutputProtocol {
-    func success(type: TypeOfAction, avatarImage: UIImage?) {
+    func success(type: TypeOfAction, avatarImage: UIImage?, userName: String?) {
         switch type {
         case .checkCurentUser:
             presenter.deleteTap()
@@ -175,7 +177,18 @@ extension SettingsViewController: SettingsPresenterOutputProtocol {
         case .gettingAvatar:
             if let avatarImage = avatarImage {
                 avatarImageView.image = avatarImage
-            } else { return }
+                
+            } else {
+                print("Can't present avatar image!!!")
+                return
+            }
+        case .gettingUserName:
+            if let userName = userName {
+                userNameLabel.text = userName
+            } else {
+                print("Can`t set user name!!!")
+                return
+            }
         }
     }
     func failure(error: Error) {

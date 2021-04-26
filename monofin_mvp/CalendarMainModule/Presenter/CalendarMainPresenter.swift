@@ -8,7 +8,7 @@ import UIKit
 import Foundation
 
 protocol CalendarOutProtocol: class {
-    func setUser(user: UserInfo)
+    func setUser(user: UserInfo, userAvatarImg: UIImage?)
     func success()
     func failure(error: Error)
 }
@@ -51,7 +51,9 @@ class CalendarMainPresenter: CalendarInProtocol {
             if let userName = UserDefaults.standard.string(forKey: "userName") { self.userName = userName }
             if let photoURL = UserDefaults.standard.string(forKey: "userPhotoUrl") { self.photoURL = photoURL }
             let user = UserInfo(userName: userName, uid: uid, email: email, photoURL: photoURL)
-            self.view?.setUser(user: user)
+            
+            
+            self.view?.setUser(user: user, userAvatarImg: nil)
         } else {
             router?.showAuthSelectViewController()
         }
